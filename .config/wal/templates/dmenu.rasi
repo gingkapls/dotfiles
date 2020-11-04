@@ -1,0 +1,45 @@
+/**
+ * ROFI Color theme
+ * User: divyang
+ * Copyright: lol no 
+ */
+* {{
+    background-color:	argb:25{background.strip};
+    border-color:	{color15};
+    text-color:		{foreground};
+    height:		26px;
+}}
+
+#window {{
+    width:      43.0%;
+    padding:    1px;
+    children:   [ horibox ];
+}}
+
+
+#horibox {{
+    orientation: horizontal;
+    children:   [ entry, listview ];
+}}
+
+#listview {{
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}}
+
+#entry {{
+    expand:     false;
+    width:      0em;
+    padding:    0px 0px ;
+    enabled: 	false;
+}}
+
+#element {{
+    padding: 0px 2px;
+    background-color: argb:00{background.strip};
+}}
+#element selected {{
+    background-color: argb:DD{color6.strip};
+
+}}

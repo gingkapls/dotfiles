@@ -1,0 +1,25 @@
+
+max-visible=5
+border-radius=8
+border-size=4
+border-color={color14}C8
+width=295
+height=0
+default-timeout=5000
+background-color={background}E8
+text-color={foreground}
+font=Fira Mono for Powerline Bold 14
+padding=15
+margin=18,20,0,0
+group-by=app-name
+max-icon-size=96
+layer=overlay
+icons=1
+
+format=<b>%s</b>\n%b 
+
+icon-path="/usr/share/icons/McMojave-circle-dark/devices/scalable/:/usr/share/icons/McMojave-circle-dark/devices/symbolic/:/usr/share/icons/McMojave-circle-dark/status/symbolic/:/usr/share/icons/McMojave-circle-dark/status/32/:/usr/share/icons/McMojave-circle-dark/devices/24/:/usr/share/icons/McMojave-circle-dark/devices/22/:/usr/share/icons/McMojave-circle-dark/devices/16/:/usr/share/icons/McMojave-circle-dark/status/22/:/usr/share/icons/McMojave-circle-dark/status/16/"
+
+[grouped]
+format=<b>%s</b>\n%b
+

@@ -1,0 +1,64 @@
+@-moz-document url(chrome://browser/content/browser.xul),
+               url(chrome://browser/content/browser.xhtml) {{
+  /* Your style rules for the user interface go here */
+
+/*
+ *  * Hide tab bar, navigation bar and scrollbars
+ *   * !important may be added to force override, but not necessary
+ *    * #content is not necessary to hide scroll bars
+ *     */
+/*#navigator-toolbox {{visibility: collapse;}}
+*/
+browser {{margin-right: -14px; margin-bottom: -14px;}}
+#urlbar-container {{ margin-bottom: -50px !important;
+		    background-color: transparent !important;
+
+}}
+#nav-bar {{margin-bottom: -41px !important;
+	  background-color: transparent !important;
+}}
+
+#back-button {{ margin-left: -40px !important; }} 
+
+.tabbrowser-tab::before{{
+    display:none !important;
+    background-color: transparent !important;
+    opacity: 0.5 !important;
+}}
+.tabbrowser-tab::after{{
+    display:none !important;
+    background-color: transparent !important;
+    opacity: 0.5 !important;
+}}
+
+html, html > *, html > * > *, .browser-toolbar  {{
+  border: none !important;
+  -moz-appearance: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}}
+
+
+.tab-line {{
+  background: transparent !important;
+  opacity: 0.8 !important ;
+}}
+
+.tab-text {{
+  color: {foreground};
+}}
+
+.tab-background[selected=true] {{
+  border-radius: 6px;
+  border: none !important;
+  background: rgb({background.rgb},1) !important;
+}}
+
+.tab-background{{
+  border-radius: 6px;
+  border: none !important;
+  background: rgb({background.rgb},.4) !important;
+}}
+
+}}
+}}
