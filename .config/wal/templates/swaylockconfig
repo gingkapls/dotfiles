@@ -1,0 +1,17 @@
+color={background}
+font=Fira Mono for Powerline Bold
+font-size=16
+image=$HOME/backgrounds/blurred/ilya-kuvshinov-anime-girl-with-umbrella-w9.jpg
+
+ring-color=#{color14.strip}D8
+inside-color=#{background.strip}00
+inside-clear-color=#{background.strip}00
+key-hl-color=#{background.strip}D8
+
+inside-ver-color=#{background.strip}00
+line-uses-inside
+text-color={foreground}
+text-clear-color=#{foreground.strip}00
+text-ver-color=#{foreground.strip}00
+text-caps-lock-color={foreground}
+text-wrong-color={foreground}

@@ -1,0 +1,163 @@
+* {{
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Fira Mono for Powerline;
+    font-size: 20px;
+    min-height: 0;
+	font-weight: 900;
+}}
+
+window#waybar {{
+    background-color: rgba({background.rgb}, 1);
+    border-bottom: 3px rgba({color14.rgb}, 0.6);
+    color: rgb({foreground.rgb});
+    transition-property: background-color;
+    transition-duration: .5s;
+}}
+
+window#waybar.hidden {{
+    opacity: 0.2;
+}}
+
+/*
+window#waybar.empty {{
+    background-color: transparent;
+}}
+window#waybar.solo {{
+    background-color: #FFFFFF;
+}}
+*/
+
+#workspaces button {{
+    padding: 0 5px;
+    background-color: transparent;
+    color: rgba({foreground.rgb}, 1);
+    border-bottom: 3px solid transparent;
+}}
+
+#workspaces button:hover {{
+    background: rgba({color2.rgb}, 0.8);
+    box-shadow: inherit;
+    border-bottom: 3px solid rgb({color6.rgb});
+}}
+
+#workspaces button.focused {{
+    background-color: rgba({color6.rgb}, 0.3);
+    border-bottom: 3px solid rgb({foreground.rgb});
+}}
+
+#workspaces button.urgent {{
+    background-color: #eb4d4b;
+}}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-wf-recorder,
+#mpd {{
+    padding: 0 6px;
+    margin: 0 4px;
+	color: rgb({foreground.rgb});
+}}
+
+#mode {{
+    background-color: rgba({background.rgb}, 0.4);
+    border-bottom: 3px solid rgb({color14.rgb});
+}}
+
+@keyframes blink {{
+    to {{
+        background-color: rgb({background.rgb});
+        color: rgb({foreground.rgb});
+    }}
+}}
+
+#battery.critical:not(.charging) {{
+    color: #f53c50;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}}
+
+label:focus {{
+    color: rgb({background.rgb});
+}}
+
+#memory {{
+    color: #9b59b6;
+}}
+
+/*
+#backlight {{
+    color: rgb({color2.rgb});
+}}
+*/
+
+#network.disconnected {{
+    color: #f53c3c;
+}}
+
+#pulseaudio.muted {{
+    color: #90b1b1;
+}}
+
+#custom-media {{
+    color: #66cc99;
+    min-width: 100px;
+}}
+
+#custom-media.custom-spotify {{
+    color: #66cc99;
+}}
+
+#custom-media.custom-vlc {{
+    color: #ffa000;
+}}
+
+#temperature.critical {{
+    color: #eb4d4b;
+}}
+
+#tray {{
+    color: rgb({color14.rgb});
+}}
+
+#idle_inhibitor {{
+    color: rgb({background.rgb});
+}}
+
+#idle_inhibitor.activated {{
+    color: rgb({foreground.rgb});
+}}
+
+#mpd {{
+    color: rgb({color14.rgb});
+}}
+
+#mpd.disconnected {{
+    color: rgb({color8.rgb});
+}}
+
+#mpd.stopped {{
+    color: rgb({color8.rgb});
+}}
+
+#mpd.paused {{
+    color: rgb({foreground.rgb});
+}}
+
+#custom-wf-recorder {{
+    color: rgb({color2.rgb});
+}}
