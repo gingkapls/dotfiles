@@ -220,29 +220,29 @@ draw_bold_text_with_bright_colors: false
 # BEGIN ACE
 colors:
   primary:
-    background: '0xfaf9fa'
-    foreground: '0x3E4850'
+    background: '0x110B19'
+    foreground: '0xeae1e2'
   cursor:
-    text:       '0xfaf9fa'
-    cursor:     '0x3E4850'
+    text:       '0x110B19'
+    cursor:     '0xeae1e2'
   normal:
-    black:      '0xfaf9fa'
-    red:        '0xc581df'
-    green:      '0xe69aa0'
-    yellow:     '0x7f98de'
-    blue:       '0xaf96e4'
-    magenta:    '0xdf9ee6'
-    cyan:       '0xc6b2eb'
-    white:      '0x3E4850'
+    black:      '0x110B19'
+    red:        '0xb72d92'
+    green:      '0x9f2fbc'
+    yellow:     '0xc831bc'
+    blue:       '0xd866b8'
+    magenta:    '0xe69aba'
+    cyan:       '0xeebed3'
+    white:      '0xeae1e2'
   bright:
-    black:      '0x5b565a'
-    red:        '0xc581df'
-    green:      '0xe69aa0'
-    yellow:     '0x7f98de'
-    blue:       '0xaf96e4'
-    magenta:    '0xdf9ee6'
-    cyan:       '0xc6b2eb'
-    white:      '0x3E4850'
+    black:      '0xa39d9e'
+    red:        '0xb72d92'
+    green:      '0x9f2fbc'
+    yellow:     '0xc831bc'
+    blue:       '0xd866b8'
+    magenta:    '0xe69aba'
+    cyan:       '0xeebed3'
+    white:      '0xeae1e2'
 # END ACE
 
 # Visual Bell

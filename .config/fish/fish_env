@@ -1,0 +1,23 @@
+## Path
+set -g -x PATH /usr/local/bin $HOME/Apps/ $HOME/.gem/ruby/2.7.0/bin $HOME/.scripts/ $PATH
+
+## Wayland
+set -g -x MOZ_ENABLE_WAYLAND 1
+set -g -x QT_QPA_PLATFORM wayland-egl
+set -g -x SDL_VIDEODRIVER wayland
+set -g -x XDG_SESSION_TYPE wayland
+set -g -x QT_QPA_PLATFORMTHEME qt5ct
+set -g -x XDG_CONFIG_HOME $HOME/.config/
+
+## Screenshot directory
+set -g -x GRIM_DEFAULT_DIR $HOME/Pictures/shots/
+
+## RIPGREP
+set -g -x RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/rg.rc
+
+
+## NNN
+set -g -x NNN_OPENER xdg-open
+set -g -x NNN_BMS 'd:~/Downloads;m:/mnt;h:~'
+set -g -x NNN_PLUG 'f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;i:imgview;l:pywallight;w:pywaldark'
+set -g -x EDITOR /usr/bin/vim
