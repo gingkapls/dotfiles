@@ -86,8 +86,8 @@ title_align center
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="anki" title=".*User*."] move workspace 5, focus 
-for_window [app_id="anki" title=".*Add*."] floating enable, resize grow height 190, resize grow width 200, opacity 0.4
-for_window [app_id="anki" title=".*Add*." workspace="5"] floating disable, opacity 1
+for_window [app_id="anki" title=".*Add*."] floating enable, resize set height 510, resize set width 910
+##for_window [app_id="anki" title=".*Add*." workspace="5"] floating disable, opacity 1
 ## for_window [app_id="Alacritty" floating] resize set height 700, resize set width 1000
 for_window [app_id="mpv"] floating enable
 for_window [app_id="imv"] floating enable
@@ -328,7 +328,6 @@ mode applications {
 	bindsym e exec $term -e vifm, mode "default"
 	bindsym f exec firefox, mode "default"
 	bindsym shift+m exec $term --class 'Alacritty - ncmpcpp' -e ncmpcpp, mode "default"
-	bindsym m exec nwggrid -b "$backgroundDA" -s 256 -d $HOME/Mangas/.Desktops/, mode "default"
 	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e bluetoothctl, mode "default"
 	bindsym s exec "scrcpy -t", mode "default"
 	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
@@ -339,6 +338,7 @@ mode applications {
 }
 bindsym $mod+Escape mode applications 
 bindsym $mod+shift+d exec $HOME/.scripts/dictdialog.sh
+bindsym $mod+m exec nwggrid -b "$backgroundDA" -s 256 -d $HOME/Mangas/.Desktops/
 
 ## bindsym $mod+shift+f exec $term --class 'Alacritty - Finder' -e "xdg-open $(fd --full-path $HOME | fzf)" , mode "default"
 

@@ -49,12 +49,6 @@ nnoremap ;<Tab> :bn <CR>
 nnoremap <silent> ;l :noh <CR> 
 nnoremap <Leader>c :r !
 
-inoremap {<CR> {}<C-o>h
-inoremap (<CR> ()<C-o>h
-inoremap [<CR> []<C-o>h
-inoremap =<CR> ====<C-o>b<C-o>2l
-
-
 " Saving and Quitting
 nnoremap \w :w <CR>
 nnoremap \q :q<CR>
@@ -125,23 +119,38 @@ set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
 " Tab autocompletion
-function! InsertTabWrapper()
-	let col = col('.') - 1
-	if !col || getline('.')[col - 1] !~ '\k'
-		return "\<tab>"
-	else
-		return "\<c-p>"
-	endif
-endfunction
+" function! InsertTabWrapper()
+" 	let col = col('.') - 1
+" 	if !col || getline('.')[col - 1] !~ '\k'
+" 		return "\<tab>"
+" 	else
+" 		return "\<c-p>"
+" 	endif
+" endfunction
 
-inoremap <expr> <tab> InsertTabWrapper()
+" inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 
+" LaTeX
+let g:tex_flavor = 'latex'
+let g:livepreview_previewer = 'zathura'
+autocmd BufEnter *.tex set foldmethod=expr
+autocmd BufEnter *.tex set foldexpr=vimtex#fold#level(v:lnum)
+autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
+
+" ultrasnips
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsEditSplit="vertical"
 " Plugins
 call plug#begin()
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'lervag/vimtex'
+Plug 'honza/vim-snippets'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 call plug#end()
 
 colorscheme wal
