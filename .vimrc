@@ -19,6 +19,7 @@ set smartcase
 set path+=**
 set wildmenu
 set incsearch
+set infercase
 
 " Text
 set display+=lastline
@@ -119,25 +120,34 @@ set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
 " Tab autocompletion
-" function! InsertTabWrapper()
-" 	let col = col('.') - 1
-" 	if !col || getline('.')[col - 1] !~ '\k'
-" 		return "\<tab>"
-" 	else
-" 		return "\<c-p>"
-" 	endif
-" endfunction
+function! InsertTabWrapper(arg)
+	let col = col('.') - 1
+	if !col || getline('.')[col - 1] !~ '\k'
+		return "\<tab>"
+	else
+		if a:arg == "1" 
+				return "\<c-p>"
+		else
+				return "\<c-n>"
+		endif
+	endif
+endfunction
 
-" inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+autocmd FileType markdown inoremap <buffer> <expr> <s-tab> InsertTabWrapper("1")
+autocmd FileType markdown inoremap <buffer> <expr> <tab> InsertTabWrapper("0")
 
 
 " LaTeX
 let g:tex_flavor = 'latex'
 let g:livepreview_previewer = 'zathura'
+let g:vimtex_toc_config = {
+	\'split_pos' 	: ':vert :botright',
+	\'split_width'	: 50,
+	\}
 autocmd BufEnter *.tex set foldmethod=expr
 autocmd BufEnter *.tex set foldexpr=vimtex#fold#level(v:lnum)
 autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
+nnoremap <silent> <leader>lt :VimtexTocToggle<CR>
 
 " ultrasnips
 let g:UltiSnipsExpandTrigger="<Tab>"
