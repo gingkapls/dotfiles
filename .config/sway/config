@@ -20,7 +20,8 @@ set $term alacritty
 ## colors
 include "$HOME/.cache/wal/colors-sway"
 
-output "*" background $wallpaper fill
+output "*" bg $background solid_color
+# output "*" background $wallpaper fill
 client.focused $background $background $color6 $color6 $foreground00
 client.unfocused $background $background $foreground $color600 $background00
 client.focused_inactive $background $background $foreground $color600 $background00
@@ -38,6 +39,8 @@ font pango:Fira Mono for Powerline Bold 10
 # on the original workspace that the command was run on.
 
 set $menu bemenu-run -H30 --nb '$background' --nf '$color14' --fb '$background' --ff '$color14' --hb '$background' --hf '$color14' --tb '$background' --tf '$color14' --fn 'Fira Mono for Powerline Bold 16' | xargs swaymsg exec --
+
+set $typer bemenu -H30 --nb '$background' --nf '$color14' --fb '$background' --ff '$color14' --hb '$background' --hf '$color14' --tb '$background' --tf '$color14' --fn 'Fira Mono for Powerline Bold 16' -I1
 
 set $gnome-schema org.gnome.desktop.interface 
 
@@ -142,7 +145,7 @@ exec swayidle -w \
    }
 
    input "1:1:AT_Translated_Set_2_keyboard" {
-       xkb_options caps:swapescape
+       xkb_options "caps:swapescape,compose:ralt"
    }
 
 
@@ -337,8 +340,9 @@ mode applications {
 	bindsym Return mode "default"
 }
 bindsym $mod+Escape mode applications 
-bindsym $mod+shift+d exec $HOME/.scripts/dictdialog.sh
 bindsym $mod+m exec nwggrid -b "$backgroundDA" -s 256 -d $HOME/Mangas/.Desktops/
+
+bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | $typer | $HOME/.scripts/dictdialog.sh
 
 ## bindsym $mod+shift+f exec $term --class 'Alacritty - Finder' -e "xdg-open $(fd --full-path $HOME | fzf)" , mode "default"
 

@@ -1,5 +1,5 @@
 ## Path
-set -g -x PATH /usr/local/bin $HOME/Apps/ $HOME/.gem/ruby/2.7.0/bin $HOME/.scripts/ $PATH
+set -g -x PATH /usr/local/bin $HOME/.gem/ruby/2.7.0/bin $HOME/.scripts/ $PATH
 
 ## Wayland
 set -g -x MOZ_ENABLE_WAYLAND 1

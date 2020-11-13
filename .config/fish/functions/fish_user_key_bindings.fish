@@ -5,3 +5,6 @@ bind -M insert \cc kill-whole-line force-repaint
 ## bang bang
 bind ! __history_previous_command
 bind '$' __history_previous_command_arguments
+
+## autocomplete
+bind -k btab forward-word
