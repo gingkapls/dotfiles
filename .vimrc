@@ -34,6 +34,7 @@ set spelllang=en_us,en_gb
 set spell
 set ai
 set tabstop=4
+set scrolloff=999
 " }}
 
 " Commands {{
@@ -56,6 +57,7 @@ nnoremap ;d :bd<CR>
 nnoremap ;<Tab> :bn <CR>
 nnoremap <silent> ;l :noh <CR> 
 nnoremap <Leader>c :r !
+nnoremap <Leader>g :Goyo <CR>
 " }}
 
 " Saving and Quitting {{
@@ -123,12 +125,20 @@ let g:airline#extensions#tabline#enabled = 1
 
 " }}
 
-" backups {{
+" Backups {{
 set backup
 set backupdir=~/.vim/backup//
 set writebackup
 set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+" }}
+
+" Limelight {{
+autocmd! User GoyoEnter Limelight0.3
+autocmd! User GoyoLeave Limelight!
+autocmd BufEnter *.md let g:limelight_mode = 'movement'
+autocmd BufEnter *.md let g:limelight_bop = '\n'
+autocmd BufEnter *.md let g:limelight_eop = '\n'
 " }}
 
 " Tab autocompletion {{
@@ -186,6 +196,8 @@ Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " }}

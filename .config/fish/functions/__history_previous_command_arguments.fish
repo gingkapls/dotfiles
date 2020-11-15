@@ -3,7 +3,7 @@ function __history_previous_command_arguments
   case "!"
     commandline -t " "
     commandline -f history-token-search-backward
-  case "\$"
+  case "*"
     commandline -i '$'
   end
 end
