@@ -90,6 +90,7 @@ for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="anki" title=".*User*."] move workspace 5, focus 
 for_window [app_id="anki" title=".*Add*."] floating enable, resize set height 510, resize set width 910
+for_window [app_id="anki" title=".*Choose Deck*."] floating enable, resize set height 600, resize set width 600
 ##for_window [app_id="anki" title=".*Add*." workspace="5"] floating disable, opacity 1
 ## for_window [app_id="Alacritty" floating] resize set height 700, resize set width 1000
 for_window [app_id="mpv"] floating enable

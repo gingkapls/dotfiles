@@ -7,7 +7,7 @@ set font 'Fira Mono for Powerline Bold 8'
 
 ## recolor
 set recolor-darkcolor rgb({foreground.rgb})
-set recolor-lightcolor rgba({background.rgb}, 0.85)
+set recolor-lightcolor rgb({background.rgb})
 set recolor-reverse-video false
 set statusbar-bg {background.rgba}
 set recolor-keephue true

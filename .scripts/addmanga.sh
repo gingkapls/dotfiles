@@ -18,7 +18,7 @@ while read -r manga; do
 	done < <(fd "jpg|png|jpeg" "$PWD/$manga" -t f)
 echo -e "[Desktop Entry]
 Name="$series $name"
-Exec=imv \"$PWD/$manga/\"* && swaymsg -t command workspace current
+Exec=imv \"$PWD/$manga/\"* -s crop && swaymsg -t command workspace current
 Icon=$icon
 Type=Application" > "$HOME/Mangas/.Desktops/$manga.desktop"
 done < <(fd . -t d)

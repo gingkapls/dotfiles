@@ -88,6 +88,11 @@ nnoremap <Leader>l <C-W><C-L>
 nnoremap <silent> <Leader>e :Vexplore 15<CR>
 " }}
 
+" Anki-vim {{
+autocmd BufEnter *.anki_vim :norm 10G
+
+" }}
+
 " Powerline stuff {{
 " set fillchars+=vert:│ 
 let g:airline_extensions = ["tabline"]
