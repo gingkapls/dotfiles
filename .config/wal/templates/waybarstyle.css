@@ -2,10 +2,11 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Fira Mono for Powerline;
+    font-family: Iosveka;
     font-size: 20px;
     min-height: 0;
-	font-weight: 900;
+	font-style: Oblique;
+	font-weight: bolder;
 }}
 
 window#waybar {{
@@ -97,6 +98,10 @@ label:focus {{
 
 #memory {{
     color: #9b59b6;
+}}
+
+#window {{
+	color: rgb({color14.rgb});
 }}
 
 /*

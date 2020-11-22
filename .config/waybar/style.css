@@ -1,1 +1,171 @@
-/home/divyang/.cache/wal/waybarstyle.css
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Iosveka;
+    font-size: 20px;
+    min-height: 0;
+	font-style: Oblique;
+	font-weight: bolder;
+}
+
+@import "colors.css";
+
+window#waybar {
+    background-color: @base00;
+    border-bottom: 3px @base0E;
+    color: @base07;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @base07;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+    background: @base03;
+    box-shadow: inherit;
+    border-bottom: 3px solid @base06;
+}
+
+#workspaces button.focused {
+    background-color: @base05;
+	color: @base00;
+    border-bottom: 3px solid @base07;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-wf-recorder,
+#mpd {
+    padding: 0 6px;
+    margin: 0 4px;
+	color: @base07;
+}
+
+#mode {
+    background-color: @base00;
+    border-bottom: 3px solid @base0E;
+}
+
+@keyframes blink {
+    to {
+        background-color: @base00;
+        color: @base07;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c50;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    color: @base00;
+}
+
+#window {
+	color: @base0D;
+}
+
+#clock {
+	color: @base0C;
+}
+
+/*
+#backlight {
+    color: rgb({color2.rgb});
+}
+*/
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+#pulseaudio.muted {
+    color: #90b1b1;
+}
+
+#custom-media {
+    color: #66cc99;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    color: #ffa000;
+}
+
+#temperature.critical {
+    color: #eb4d4b;
+}
+
+#tray {
+    color: @base0E;
+}
+
+#idle_inhibitor {
+    color: @base00;
+}
+
+#idle_inhibitor.activated {
+    color: @base07;
+}
+
+#mpd {
+    color: @base0E;
+}
+
+#mpd.disconnected {
+    color: @base08;
+}
+
+#mpd.stopped {
+    color: @base08;
+}
+
+#mpd.paused {
+    color: @base03;
+}
+
+#custom-wf-recorder {
+    color: @base02;
+}

@@ -3,7 +3,7 @@ set window-title-home-tilde true
 set statusbar-basename true
 set statusbar-home-tilde true
 set default-bg rgb({background.rgb},0.85)
-set font 'Fira Mono for Powerline Bold 8'
+set font 'Iosveka Bold 8'
 
 ## recolor
 set recolor-darkcolor rgb({foreground.rgb})
@@ -41,9 +41,9 @@ map m feedkeys ":set recolor-lightcolor '#DFC7A7'<Return><C-m>"
 map <C-m> feedkeys ":set recolor-darkcolor '#000000'<Return>b"
 
 ## transparent dark
-map i feedkeys ":set recolor-darkcolor 'rgb({foreground.rgb})'<Return><C-i>"
-map <C-i> feedkeys ":set recolor-lightcolor 'rgba({background.rgb}, 0.85)'<Return>b"
+map i feedkeys ":set recolor-lightcolor 'rgba({background.rgb}, 0.85)'<Return><C-i>"
+map <C-i> feedkeys ":set recolor-darkcolor 'rgb({foreground.rgb})'<Return>b"
 
 ## transparent light
-map n feedkeys ":set recolor-darkcolor 'rgb({background.rgb})'<Return><C-n>"
-map <C-n> feedkeys ":set recolor-lightcolor 'rgba({foreground.rgb}, 0.95)'<Return>b"
+map n feedkeys ":set recolor-lightcolor 'rgba({foreground.rgb}, 0.95)'<Return><C-n>"
+map <C-n> feedkeys ":set recolor-darkcolor 'rgb({background.rgb})'<Return>b"

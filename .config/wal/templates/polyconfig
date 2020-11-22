@@ -50,10 +50,12 @@ module-margin-left = 1
 module-margin-right = 0
 cursor-click = pointer
 
-;font-0 = SauceCodePro Nerd Font Mono:style=Bold:size=14;2
-font-0 = Fira Mono for Powerline:style=Bold:size=14;2
+;font-0 = SauceCodePro Nerd Font Mono:style=Heavy Oblique:size=14;2
+font-0 = Iosveka:style=Heavy Oblique:size=14;2
+font-0 = Iosveka:style=Heavy Oblique:size=14;2
 font-1 = Font Awesome 5 Free Solid:style=Solid:size=14;2
-font-2 = Fira Mono for Powerline:style=Bold:size=14;2
+font-2 = Iosveka:style=Heavy Oblique:size=14;2
+font-2 = Iosveka:style=Heavy Oblique:size=14;2
 font-3 = Font Awesome 5 Brands:size=14;2
 font-4 = Font Awesome 5 Free:style=Regular:size=14;2
 font-5 = Fira Code Light:style=Retina:size=11;2

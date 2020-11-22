@@ -18,29 +18,50 @@ set $right l
 set $term alacritty
 
 ## colors
-include "$HOME/.cache/wal/colors-sway"
+# Start Flavours
+## Base16 Gruvbox dark, soft
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-output "*" bg $background solid_color
+set $base00 #32302f
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #bdae93
+set $base05 #d5c4a1
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+set $base08 #fb4934
+set $base09 #fe8019
+set $base0A #fabd2f
+set $base0B #b8bb26
+set $base0C #8ec07c
+set $base0D #83a598
+set $base0E #d3869b
+set $base0F #d65d0e
+# End Flavours
+
+output "*" bg $base00 solid_color
+
 # output "*" background $wallpaper fill
-client.focused $background $background $color6 $color6 $foreground00
-client.unfocused $background $background $foreground $color600 $background00
-client.focused_inactive $background $background $foreground $color600 $background00
-client.urgent $color1 $color2 $foreground $color700 $color6
+client.focused $base00 $base00 $base06 $base06 $base0700
+client.unfocused $base00 $base00 $base07 $base0600 $base0000
+client.focused_inactive $base00 $base00 $base07 $base0600 $base0000
+client.urgent $base01 $base02 $base07 $base0700 $base06
 
-# client.focused $backgroundDA $backgroundDA $color6 $color6 $foreground00
-# client.unfocused $backgroundDA $backgroundDA $foreground $color600 $background00
-# client.focused_inactive $backgroundDA $backgroundDA $foreground $color600 $background00
-# client.urgent $color1 $color2 $foreground $color700 $color6
+# client.focused $base00DA $base00DA $base06 $base06 $base0700
+# client.unfocused $base00DA $base00DA $base07 $base0600 $base0000
+# client.focused_inactive $base00DA $base00DA $base07 $base0600 $base0000
+# client.urgent $base01 $base02 $base07 $base0700 $base06
 
 ## Font
-font pango:Fira Mono for Powerline Bold 10
+font pango:Iosveka Heavy Oblique 12
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-set $menu bemenu-run -H30 --nb '$background' --nf '$color14' --fb '$background' --ff '$color14' --hb '$background' --hf '$color14' --tb '$background' --tf '$color14' --fn 'Fira Mono for Powerline Bold 16' | xargs swaymsg exec --
+set $menu bemenu-run -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0E' --hb '$base00' --hf '$base0E' --tb '$base00' --tf '$base0E' --fn 'Iosveka Heavy Oblique 16' | xargs swaymsg exec --
 
-set $typer bemenu -H30 --nb '$background' --nf '$color14' --fb '$background' --ff '$color14' --hb '$background' --hf '$color14' --tb '$background' --tf '$color14' --fn 'Fira Mono for Powerline Bold 16' -I1
+set $typer bemenu -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0E' --hb '$base00' --hf '$base0E' --tb '$base00' --tf '$base0E' --fn 'Iosveka Heavy Oblique 16' -I1
 
 set $gnome-schema org.gnome.desktop.interface 
 
@@ -86,18 +107,17 @@ titlebar_padding 10 4
 title_align center
 
 ## Assignments
-for_window [class="^.*"] inhibit_idle fullscreen
-for_window [app_id="^.*"] inhibit_idle fullscreen
-for_window [app_id="anki" title=".*User*."] move workspace 5, focus 
-for_window [app_id="anki" title=".*Add*."] floating enable, resize set height 510, resize set width 910
-for_window [app_id="anki" title=".*Choose Deck*."] floating enable, resize set height 600, resize set width 600
+for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
+for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
+for_window [app_id="anki"] floating enable, resize set height 510, resize set width 910
+for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 ##for_window [app_id="anki" title=".*Add*." workspace="5"] floating disable, opacity 1
 ## for_window [app_id="Alacritty" floating] resize set height 700, resize set width 1000
 for_window [app_id="mpv"] floating enable
 for_window [app_id="imv"] floating enable
 for_window [app_id="imv" title=".*Mangas.*"] move workspace 10, workspace 10, floating disable
 for_window [app_id="zenity"] floating enable
-for_window [app_id="Alacritty - ncmpcpp"] floating enable, resize set height 500, resize width set 500
+for_window [app_id="Alacritty - ncmpcpp"] floating enable, resize set height 600, resize width set 600
 for_window [app_id="Alacritty - bluetoothctl"] floating enable, resize set height 200, resize width set 600
 for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0
 for_window [app_id="Alacritty - dropdown"] floating enable, move position 0 -32, resize set height 200, resize width set 600
@@ -105,7 +125,7 @@ for_window [app_id="Alacritty - notes"] floating enable, move position 0 0
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
 for_window [title="Edit Message"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
-for_window [app_id="qbittorrent" title="!(qBittorrent v.*)"] floating enable, resize set height 700, resize set width 1200
+# for_window [app_id="qbittorrent" title="!(qBittorrent v.*)"] floating enable, resize set height 700, resize set width 1200
 for_window [title="^wget.*"] inhibit_idle
 for_window [class="XEyes"] floating enable, sticky enable
 for_window [urgent="latest"] focus
@@ -318,8 +338,8 @@ bindsym XF86MonBrightnessDown exec "$HOME/.scripts/setbrightness.sh 0.831739"
 ## Media keys
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec $HOME/.scripts/mpccontrols.sh backward
+bindsym XF86AudioNext exec $HOME/.scripts/mpccontrols.sh forward
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
@@ -328,20 +348,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+ctrl+l exec swaylock
 
 ## Applications
-mode applications {
-	bindsym e exec $term -e vifm, mode "default"
-	bindsym f exec firefox, mode "default"
-	bindsym shift+m exec $term --class 'Alacritty - ncmpcpp' -e ncmpcpp, mode "default"
-	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e bluetoothctl, mode "default"
-	bindsym s exec "scrcpy -t", mode "default"
-	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
-	bindsym shift+a exec $HOME/.scripts/genystart.sh -a, mode "default"
-	bindsym r exec $term --class 'Alacritty - dropdown' -d 130 5, mode "default"
-	bindsym Escape mode "default"
-	bindsym Return mode "default"
-}
-bindsym $mod+Escape mode applications 
-bindsym $mod+m exec nwggrid -b "$backgroundDA" -s 256 -d $HOME/Mangas/.Desktops/
+bindsym $mod+Escape exec nwggrid -b "$base00DA" -s 96 -d "$HOME/Desktop/"
+bindsym $mod+m exec nwggrid -b "$base00DA" -s 256 -d "$HOME/Mangas/.Desktops/"
 
 bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | $typer | $HOME/.scripts/dictdialog.sh
 
@@ -356,8 +364,8 @@ mode pywal {
 	bindsym Return mode "default"
 }
 
-bindsym $mod+p mode pywal
-bindsym $mod+semicolon exec $HOME/.scripts/darkmode.sh 
+## bindsym $mod+p mode pywal
+## bindsym $mod+semicolon exec $HOME/.scripts/darkmode.sh 
 
 mode yt-mpv {
 	bindsym 1 exec $HOME/.scripts/ytmpv.sh 360p, mode "default"

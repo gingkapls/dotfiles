@@ -13,8 +13,8 @@
 
 
 	"sway/window": {
-		"format": "{}",
-		"max-length": 50
+		"format": " {} ",
+		"max-length": 52
 	},
 
 	"sway/mode": {

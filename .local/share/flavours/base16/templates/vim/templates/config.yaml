@@ -1,0 +1,7 @@
+default: 
+    extension: .vim
+    output: colors
+
+custom: 
+    extension: .vim
+    output: colors

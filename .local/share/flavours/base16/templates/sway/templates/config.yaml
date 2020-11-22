@@ -1,0 +1,6 @@
+colors:
+    extension: .config
+    output: themes
+
+swaylock:
+    extension: .config

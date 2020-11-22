@@ -7,13 +7,6 @@ set splitbelow
 set splitright
 " }}
 
-" Misc {{
-set backspace=indent,eol,start
-set backupdir=~/.cache/vim
-set confirm
-set dir=~/.cache/vim
-" }}
-
 " Search {{
 set hlsearch
 set ignorecase
@@ -35,6 +28,7 @@ set spell
 set ai
 set tabstop=4
 set scrolloff=999
+set backspace=indent,eol,start
 " }}
 
 " Commands {{
@@ -93,7 +87,7 @@ autocmd BufEnter *.anki_vim :norm 10G
 
 " }}
 
-" Powerline stuff {{
+" Airline {{
 " set fillchars+=vert:│ 
 let g:airline_extensions = ["tabline"]
 
@@ -132,18 +126,21 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Backups {{
 set backup
-set backupdir=~/.vim/backup//
+set backupdir=~/.vim/backup/
 set writebackup
 set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+set confirm
+set dir=~/.cache/vim
+
 " }}
 
 " Limelight {{
 autocmd! User GoyoEnter Limelight0.3
-autocmd! User GoyoLeave Limelight!
-autocmd BufEnter *.md let g:limelight_mode = 'movement'
-autocmd BufEnter *.md let g:limelight_bop = '\n'
-autocmd BufEnter *.md let g:limelight_eop = '\n'
+autocmd! User GoyoLeave Limelight! colorscheme base16-generated
+" autocmd BufEnter *.md let g:limelight_mode = 'movement'
+" autocmd BufEnter *.md let g:limelight_bop = '\n'
+" autocmd BufEnter *.md let g:limelight_eop = '\n'
 " }}
 
 " Tab autocompletion {{
@@ -169,10 +166,12 @@ autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview 
 autocmd BufEnter *.tex set foldexpr=vimtex#fold#level(v:lnum)
 autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
-autocmd BufEnter *.vimrc set foldmethod=marker
-autocmd BufEnter *.vimrc set foldmarker={{,}}
-autocmd BufEnter *.md set foldmethod=marker
-autocmd BufEnter *.md set foldmarker={{,}}
+autocmd FileType vim set foldmethod=marker
+autocmd FileType vim set foldmarker={{,}}
+autocmd FileType markdown set foldmethod=marker
+autocmd FileType markdown set foldmarker={{,}}
+autocmd FileType css set foldmethod=marker
+autocmd FileType css set foldmarker={,}
 " }}
 
 " LaTeX {{
@@ -188,14 +187,13 @@ autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
 nnoremap <silent> <leader>tt :VimtexTocToggle<CR>
 " }}
 
-" ultrasnips {{
+" Ultisnips {{
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsEditSplit="vertical"
 " }}
 
 " Plugins {{
 call plug#begin()
-Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
@@ -203,8 +201,10 @@ Plug 'SirVer/ultisnips'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+" Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-
 " }}
 
-colorscheme wal
+" Colors {{
+colorscheme base16-generated
+" }}

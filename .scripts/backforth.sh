@@ -1,6 +1,6 @@
 #!/bin/sh
 
-state=
+state=$1
 case "$state" in
 		"up")
 			swaymsg focus down
