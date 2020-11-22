@@ -136,7 +136,7 @@ set dir=~/.cache/vim
 " }}
 
 " Limelight {{
-autocmd! User GoyoEnter Limelight0.3
+autocmd! User GoyoEnter Limelight0.6
 autocmd! User GoyoLeave Limelight! colorscheme base16-generated
 " autocmd BufEnter *.md let g:limelight_mode = 'movement'
 " autocmd BufEnter *.md let g:limelight_bop = '\n'

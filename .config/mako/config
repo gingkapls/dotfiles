@@ -1,0 +1,43 @@
+max-visible=5
+border-radius=8
+border-size=4
+width=295
+height=0
+default-timeout=5000
+font=Iosveka Heavy Oblique 14
+padding=15
+margin=18,20,0,0
+group-by=app-name
+max-icon-size=96
+layer=overlay
+icons=1
+
+# Start flavours
+## Base16 Generated
+# Author: Flavours
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#1f3243
+text-color=#dadfe4
+border-color=#85a8bf
+progress-color=source #85a8bf
+
+[urgency=low]
+background-color=#1f3243
+text-color=#397eb1
+border-color=#85a8bf
+
+[urgency=high]
+background-color=#1f3243
+text-color=#aba4ac
+border-color=#85a8bf
+# End flavours
+
+format=<b>%s</b>\n%b 
+
+icon-path="/usr/share/icons/McMojave-circle-dark/devices/scalable/:/usr/share/icons/McMojave-circle-dark/devices/symbolic/:/usr/share/icons/McMojave-circle-dark/status/symbolic/:/usr/share/icons/McMojave-circle-dark/status/32/:/usr/share/icons/McMojave-circle-dark/devices/24/:/usr/share/icons/McMojave-circle-dark/devices/22/:/usr/share/icons/McMojave-circle-dark/devices/16/:/usr/share/icons/McMojave-circle-dark/status/22/:/usr/share/icons/McMojave-circle-dark/status/16/"
+
+[grouped]
+format=<b>%s</b>\n%b
+

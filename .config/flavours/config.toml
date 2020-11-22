@@ -56,7 +56,15 @@ rewrite = true
 file = '~/.config/waybar/colors.css'
 template = 'waybar'
 subtemplate = 'default'
+hook = 'bash -c "killall waybar && waybar & disown"'
 rewrite = true
+
+[[item]]
+file = '~/.config/mako/config'
+template = 'mako'
+subtemplate = 'custom'
+hook = 'kill mako'
+rewrite = false
 
 [[item]]
 file = '~/.themes/FlatColor/colors2'
@@ -68,6 +76,7 @@ rewrite = true
 file = '~/.themes/FlatColor/colors3'
 template = 'gtk-flatcolor'
 subtemplate = 'gtk-3'
+hook = 'bash -c "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme FlatColor"'
 rewrite = true
 
 

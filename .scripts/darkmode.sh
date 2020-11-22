@@ -1,36 +1,17 @@
 #!/bin/sh
 
-darkpaper="$HOME/backgrounds/images/ilya-kuvshinov-girl-cup.jpg"
-lightpaper="$HOME/backgrounds/images/ilya-kuvshinov-anime-girl-with-umbrella-w9.jpg"
-
-if [ "$(cat $HOME/.cache/wal/wal)" == "$darkpaper" ]; then
-		mode=dark
-else
-		mode=light
-fi
-
-echo $mode
-
-case "$mode" in 
-"light")
-	$HOME/.scripts/pywalchange.sh $darkpaper -wd -b "#110B19"
+case $1 in
+	"dark")
+		flavours apply "$(flavours current)"
+		gsettings set org.gnome.desktop.interface icon-theme 'McMojve-circle-Dark'
+		gsettings set org.gnome.desktop.interface gtk-theme 'dummy'
+		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 	;;
-"dark")
-	$HOME/.scripts/pywalchange.sh $lightpaper -wl
-	;;
-"*")
-	notify-send "Incorrect argument"
+	"light")
+		flavours apply "$(flavours current)"
+		gsettings set org.gnome.desktop.interface icon-theme 'McMojve-circle-Light'
+		gsettings set org.gnome.desktop.interface gtk-theme 'dummy'
+		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 	;;
 esac
-	
-# wallpaperpath=$(cat $HOME/.cache/wal/wal)
-# 
-# if [ "$1" == "-l" ]; then
-#         $HOME/.scripts/pywalchange.sh $wallpaperpath -l
-# elif [ "$1" == "-wl" ]; then
-#         $HOME/.scripts/pywalchange.sh $wallpaperpath -wl
-# elif [ "$1" == "-d" ]; then
-#         $HOME/.scripts/pywalchange.sh $wallpaperpath -d
-# elif [ "$1" == "-wd" ]; then
-#         $HOME/.scripts/pywalchange.sh $wallpaperpath -wd
-# fi
+

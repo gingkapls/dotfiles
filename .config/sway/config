@@ -19,39 +19,34 @@ set $term alacritty
 
 ## colors
 # Start Flavours
-## Base16 Gruvbox dark, soft
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+## Base16 Generated
+# Author: Flavours
 
-set $base00 #32302f
-set $base01 #3c3836
-set $base02 #504945
-set $base03 #665c54
-set $base04 #bdae93
-set $base05 #d5c4a1
-set $base06 #ebdbb2
-set $base07 #fbf1c7
-set $base08 #fb4934
-set $base09 #fe8019
-set $base0A #fabd2f
-set $base0B #b8bb26
-set $base0C #8ec07c
-set $base0D #83a598
-set $base0E #d3869b
-set $base0F #d65d0e
+set $base00 #1f3243
+set $base01 #415261
+set $base02 #63727f
+set $base03 #86929d
+set $base04 #a8b2bb
+set $base05 #cad2d9
+set $base06 #d2d8df
+set $base07 #dadfe4
+set $base08 #aba4ac
+set $base09 #afb5b4
+set $base0A #397eb1
+set $base0B #267eba
+set $base0C #65799c
+set $base0D #85a8bf
+set $base0E #99bdd2
+set $base0F #868997
 # End Flavours
 
 output "*" bg $base00 solid_color
 
 # output "*" background $wallpaper fill
-client.focused $base00 $base00 $base06 $base06 $base0700
-client.unfocused $base00 $base00 $base07 $base0600 $base0000
-client.focused_inactive $base00 $base00 $base07 $base0600 $base0000
+client.focused $base00 $base00 $base0F $base06 $base0E
+client.unfocused $base00 $base00 $base07 $base0600 $base02
+client.focused_inactive $base00 $base00 $base07 $base0600 $base00
 client.urgent $base01 $base02 $base07 $base0700 $base06
-
-# client.focused $base00DA $base00DA $base06 $base06 $base0700
-# client.unfocused $base00DA $base00DA $base07 $base0600 $base0000
-# client.focused_inactive $base00DA $base00DA $base07 $base0600 $base0000
-# client.urgent $base01 $base02 $base07 $base0700 $base06
 
 ## Font
 font pango:Iosveka Heavy Oblique 12
@@ -59,9 +54,9 @@ font pango:Iosveka Heavy Oblique 12
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-set $menu bemenu-run -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0E' --hb '$base00' --hf '$base0E' --tb '$base00' --tf '$base0E' --fn 'Iosveka Heavy Oblique 16' | xargs swaymsg exec --
+set $menu bemenu-run -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0F' --hb '$base00' --hf '$base0F' --tb '$base00' --tf '$base0F' --fn 'Iosveka Heavy Oblique 16' | xargs swaymsg exec --
 
-set $typer bemenu -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0E' --hb '$base00' --hf '$base0E' --tb '$base00' --tf '$base0E' --fn 'Iosveka Heavy Oblique 16' -I1
+set $typer bemenu -H30 --nb '$base00' --nf '$base0E' --fb '$base00' --ff '$base0F' --hb '$base00' --hf '$base0F' --tb '$base00' --tf '$base0F' --fn 'Iosveka Heavy Oblique 16' -I1
 
 set $gnome-schema org.gnome.desktop.interface 
 
@@ -96,7 +91,7 @@ exec pulseeffects --gapplication-service
 ## exec libinput-gestures-setup restart
 
 ## settings
-default_border pixel 4
+default_border pixel 2
 gaps outer 0
 gaps inner 10
 smart_borders on

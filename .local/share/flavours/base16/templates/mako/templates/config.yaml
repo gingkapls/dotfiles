@@ -1,0 +1,7 @@
+default:
+    extension: .config
+    output: colors
+
+custom:
+    extension: .config
+    output: colors
