@@ -4,8 +4,8 @@
 set default-bg                  "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0)"
 set default-fg                  "#{{base01-hex}}"
 
-set statusbar-fg                "#{{base04-hex}}"
-set statusbar-bg				"rgba({{base02-rgb-r}}, {{base02-rgb-g}}, {{base02-rgb-b}}, 0.8)"
+set statusbar-bg				"rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0)"
+set statusbar-fg                "#000000"
 
 set inputbar-bg                 "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.8)"
 set inputbar-fg                 "#{{base07-hex}}"
@@ -37,18 +37,21 @@ set index-active-fg 			"#{{base07-hex}}"
 set render-loading-bg			"#{{base00-hex}}"
 set render-loading-fg			"#{{base07-hex}}"
 
-set recolor                     "false"
+set recolor                     "true"
 set recolor-keephue             "true"
 
 ## sepia
-map b feedkeys ":set recolor true<Return>"
-map m feedkeys ":set recolor-lightcolor '#DFC7A7'<Return><C-m>"
-map <C-m> feedkeys ":set recolor-darkcolor '#000000'<Return>b"
+map '*' feedkeys ":set recolor true<Return>"
+map 'S' feedkeys ":set recolor-lightcolor '#DFC7A7'<Return>("
+map '(' feedkeys ":set statusbar-fg '#{{-hex}}'<Return>)"
+map ')' feedkeys ":set recolor-darkcolor '#000000'<Return>*"
 
 ## transparent dark
-map i feedkeys ":set recolor-lightcolor 'rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.85)'<Return><C-i>"
-map <C-i> feedkeys ":set recolor-darkcolor '#{{base07-hex}}'<Return>b"
+map 'D' feedkeys ":set recolor-lightcolor 'rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.85)'<Return>{"
+map '{' feedkeys ":set statusbar-fg '#{{base07-hex}}'<Return>}"
+map '}' feedkeys ":set recolor-darkcolor '#{{base07-hex}}'<Return>*"
 
 ## transparent light
-map n feedkeys ":set recolor-lightcolor 'rgba({{base07-rgb-r}}, {{base07-rgb-g}}, {{base07-rgb-b}}, 0.95)'<Return><C-n>"
-map <C-n> feedkeys ":set recolor-darkcolor '#{{base00-hex}}'<Return>b"
+map 'A' feedkeys ":set recolor-lightcolor 'rgba({{base07-rgb-r}}, {{base07-rgb-g}}, {{base07-rgb-b}}, 0.95)'<Return>)"
+map ')' feedkeys ":set statusbar-fg '#{{base00-hex}}'<Return>("
+map '(' feedkeys ":set recolor-darkcolor '#{{base00-hex}}'<Return>*"

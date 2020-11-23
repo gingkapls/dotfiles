@@ -32,9 +32,9 @@
 	},
 
     "mpd": {
-        "format": "{stateIcon} {artist} - {title} ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "Stopped ",
+        "format": "<span font-style='normal'>{stateIcon}</span> {artist} - {title} <span font-style='normal'></span>",
+        "format-disconnected": "Disconnected <span font-style='normal'></span>",
+        "format-stopped": "Stopped <span font-style='normal'></span>",
 		"on-click": "exec mpc toggle",
 		"on-click-right": "exec alacritty --class 'Alacritty - ncmpcpp' -e ncmpcpp" ,
 		"on-click-middle": "exec mpc stop",
@@ -45,11 +45,11 @@
             "on": " "
         },
         "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+            "off": "<span color=\"#f53c3c\" font-style='normal'></span> ",
+            "on": "<span font-style='normal'> </span>"
         },
         "repeat-icons": {
-            "on": " "
+            "on": "<span font-style='normal'> </span>"
         },
         "single-icons": {
             "on": "1 "
@@ -63,13 +63,12 @@
     },
 
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "<span font-style='normal'>{icon}</span>",
         "format-icons": {
             "activated": "",
             "deactivated": ""
         }
     },
-
 	
     "tray": {
         // "icon-size": 21,
@@ -77,32 +76,32 @@
 		    },
 
     "clock": {
+		"format": "{:%a %d  <span font-style='normal'></span> %R}",
+        "format-alt": "{:%b %Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-		"format": "{:%a %R}",
-        "format-alt": "{:%Y-%m-%d}"
     },
 
     "cpu": {
-        "format": "{usage}% ",
+        "format": "<span font-style='normal'></span> {usage}%",
         "tooltip": true
     },
 
     "memory": {
-        "format": "{}% "
+        "format": "<span font-style='normal'></span> {}%"
     },
 
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        // "format-critical": "<span font-style='normal'>{icon}</span> {temperatureC}°C",
+        "format": "<span font-style='normal'>{icon}</span> {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "<span font-style='normal'>{icon}</span> {percent}%",
         "format-icons": ["", ""],
 		"on-click": "exec $HOME/.scripts/setbrightness.sh"
     },
@@ -113,10 +112,10 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "<span font-style='normal'>{icon}</span> {capacity}%",
+        "format-charging": "<span font-style='normal'></span> {capacity}%",
+        "format-plugged": "<span font-style='normal'></span> {capacity}%",
+        "format-alt": "<span font-style='normal'>{icon}</span> {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -126,9 +125,9 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "<span font-style='normal'></span>",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} <span font-style='normal'></span>",
+        "format-linked": "{ifname} (No IP) <span font-style='normal'></span>",
         "format-disconnected": "⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"tooltip": true,
@@ -136,12 +135,12 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} ",
-        "format-bluetooth-muted": " {icon} ",
-        "format-muted": "",
-        "format-source": "",
-        "format-source-muted": "",
+        "format": "<span font-style='normal'>{icon}</span> {volume}%",
+        "format-bluetooth": "<span font-style='normal'>{icon} </span> {volume}%",
+        "format-bluetooth-muted": "<span font-style='normal'> {icon} </span>",
+        "format-muted": "<span font-style='normal'></span>",
+        "format-source": "<span font-style='normal'></span>",
+        "format-source-muted": "<span font-style='normal'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",

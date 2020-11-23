@@ -13,25 +13,25 @@ layer=overlay
 icons=1
 
 # Start flavours
-## Base16 Generated
-# Author: Flavours
+## Base16 vice
+# Author: Thomas Leon Highbaugh thighbaugh@zoho.com
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#1f3243
-text-color=#dadfe4
-border-color=#85a8bf
-progress-color=source #85a8bf
+background-color=#1F2023
+text-color=#e9efff
+border-color=#00caff
+progress-color=source #00caff
 
 [urgency=low]
-background-color=#1f3243
-text-color=#397eb1
-border-color=#85a8bf
+background-color=#1F2023
+text-color=#f0ee6e
+border-color=#00caff
 
 [urgency=high]
-background-color=#1f3243
-text-color=#aba4ac
-border-color=#85a8bf
+background-color=#1F2023
+text-color=#ff9cff
+border-color=#00caff
 # End flavours
 
 format=<b>%s</b>\n%b 

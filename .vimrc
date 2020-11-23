@@ -52,6 +52,9 @@ nnoremap ;<Tab> :bn <CR>
 nnoremap <silent> ;l :noh <CR> 
 nnoremap <Leader>c :r !
 nnoremap <Leader>g :Goyo <CR>
+nnoremap <Leader>z xu/<C-R>-<CR>
+nnoremap <Leader>x xu:%s/<C-R>-//g<CR>
+nnoremap \. f.a<CR><ESC> 
 " }}
 
 " Saving and Quitting {{
@@ -138,9 +141,9 @@ set dir=~/.cache/vim
 " Limelight {{
 autocmd! User GoyoEnter Limelight0.6
 autocmd! User GoyoLeave Limelight! colorscheme base16-generated
-" autocmd BufEnter *.md let g:limelight_mode = 'movement'
-" autocmd BufEnter *.md let g:limelight_bop = '\n'
-" autocmd BufEnter *.md let g:limelight_eop = '\n'
+autocmd FileType markdown let g:limelight_mode = 'movement'
+autocmd FileType markdown let g:limelight_bop = '^'
+autocmd FileType markdown let g:limelight_eop = '$'
 " }}
 
 " Tab autocompletion {{

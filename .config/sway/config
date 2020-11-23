@@ -17,36 +17,37 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 
-## colors
 # Start Flavours
-## Base16 Generated
-# Author: Flavours
+## Base16 vice
+# Author: Thomas Leon Highbaugh thighbaugh@zoho.com
 
-set $base00 #1f3243
-set $base01 #415261
-set $base02 #63727f
-set $base03 #86929d
-set $base04 #a8b2bb
-set $base05 #cad2d9
-set $base06 #d2d8df
-set $base07 #dadfe4
-set $base08 #aba4ac
-set $base09 #afb5b4
-set $base0A #397eb1
-set $base0B #267eba
-set $base0C #65799c
-set $base0D #85a8bf
-set $base0E #99bdd2
-set $base0F #868997
+set $base00 #1F2023
+set $base01 #23262C
+set $base02 #313040
+set $base03 #3A3F49
+set $base04 #525d73
+set $base05 #8b9cbe
+set $base06 #B2BFD9
+set $base07 #e9efff
+set $base08 #ff9cff
+set $base09 #796af5
+set $base0A #f0ee6e
+set $base0B #6fffff
+set $base0C #00eaff
+set $base0D #00caff
+set $base0E #50B0FF
+set $base0F #f850ac
 # End Flavours
 
+
+## colors
+# output "*" background $wallpaper fill
 output "*" bg $base00 solid_color
 
-# output "*" background $wallpaper fill
-client.focused $base00 $base00 $base0F $base06 $base0E
-client.unfocused $base00 $base00 $base07 $base0600 $base02
-client.focused_inactive $base00 $base00 $base07 $base0600 $base00
-client.urgent $base01 $base02 $base07 $base0700 $base06
+client.focused 			$base00 $base00 $base0F $base01 $base0E
+client.unfocused 		$base00 $base00 $base07 $base01 $base02
+client.focused_inactive $base00 $base00 $base0E $base01 $base01
+client.urgent 			$base01 $base00 $base07 $base01 $base06
 
 ## Font
 font pango:Iosveka Heavy Oblique 12
