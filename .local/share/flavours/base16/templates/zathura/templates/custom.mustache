@@ -2,16 +2,16 @@
 # Author: {{scheme-author}}
 
 set default-bg                  "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0)"
-set default-fg                  "#{{base01-hex}}"
+set default-fg                  "#{{base05-hex}}"
 
 set statusbar-bg				"rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0)"
-set statusbar-fg                "#000000"
+set statusbar-fg                "#{{base05-hex}}"
 
 set inputbar-bg                 "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.8)"
-set inputbar-fg                 "#{{base07-hex}}"
+set inputbar-fg                 "#{{base05-hex}}"
 
 set notification-bg             "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.8)"
-set notification-fg             "#{{base07-hex}}"
+set notification-fg             "#{{base05-hex}}"
 
 set notification-error-bg       "rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.8)"
 set notification-error-fg       "#{{base08-hex}}"
@@ -25,17 +25,17 @@ set highlight-active-color      "#{{base0D-hex}}"
 set completion-bg               "#{{base01-hex}}"
 set completion-fg               "#{{base0D-hex}}"
 
-set completion-highlight-fg     "#{{base07-hex}}"
+set completion-highlight-fg     "#{{base05-hex}}"
 set completion-highlight-bg     "#{{base0D-hex}}"
 
 set recolor-lightcolor          "#{{base00-hex}}"
-set recolor-darkcolor           "#{{base07-hex}}"
+set recolor-darkcolor           "#{{base05-hex}}"
 
 set index-active-bg 			"#{{base00-hex}}"
-set index-active-fg 			"#{{base07-hex}}"
+set index-active-fg 			"#{{base05-hex}}"
 
 set render-loading-bg			"#{{base00-hex}}"
-set render-loading-fg			"#{{base07-hex}}"
+set render-loading-fg			"#{{base05-hex}}"
 
 set recolor                     "true"
 set recolor-keephue             "true"
@@ -48,10 +48,10 @@ map ')' feedkeys ":set recolor-darkcolor '#000000'<Return>*"
 
 ## transparent dark
 map 'D' feedkeys ":set recolor-lightcolor 'rgba({{base00-rgb-r}}, {{base00-rgb-g}}, {{base00-rgb-b}}, 0.85)'<Return>{"
-map '{' feedkeys ":set statusbar-fg '#{{base07-hex}}'<Return>}"
-map '}' feedkeys ":set recolor-darkcolor '#{{base07-hex}}'<Return>*"
+map '{' feedkeys ":set statusbar-fg '#{{base05-hex}}'<Return>}"
+map '}' feedkeys ":set recolor-darkcolor '#{{base05-hex}}'<Return>*"
 
 ## transparent light
-map 'A' feedkeys ":set recolor-lightcolor 'rgba({{base07-rgb-r}}, {{base07-rgb-g}}, {{base07-rgb-b}}, 0.95)'<Return>)"
+map 'A' feedkeys ":set recolor-lightcolor 'rgba({{base05-rgb-r}}, {{base05-rgb-g}}, {{base05-rgb-b}}, 0.95)'<Return>)"
 map ')' feedkeys ":set statusbar-fg '#{{base00-hex}}'<Return>("
 map '(' feedkeys ":set recolor-darkcolor '#{{base00-hex}}'<Return>*"

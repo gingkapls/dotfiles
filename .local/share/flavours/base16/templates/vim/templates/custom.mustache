@@ -8,11 +8,11 @@
 " :colorscheme works in terminals supported by base16-shell scripts
 " User must set this variable in .vimrc
 "   let g:base16_shell_path=base16-builder/output/shell/
-if !has("gui_running")
-  if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-{{scheme-slug}}.sh"
-  endif
-endif
+" if !has("gui_running")
+"   if exists("g:base16_shell_path")
+"     execute "silent !/bin/sh ".g:base16_shell_path."/base16-{{scheme-slug}}.sh"
+"   endif
+" endif
 
 " GUI color definitions
 let s:gui00        = "{{base00-hex}}"
@@ -145,7 +145,8 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-{{scheme-slug}}"
+" let g:colors_name = "base16-{{scheme-slug}}"
+let g:colors_name = "base16-generated"
 
 " Highlighting function
 " Optional variables are attributes and guisp

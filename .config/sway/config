@@ -18,25 +18,25 @@ set $right l
 set $term alacritty
 
 # Start Flavours
-## Base16 vice
-# Author: Thomas Leon Highbaugh thighbaugh@zoho.com
+## Base16 darkmoss
+# Author: Gabriel Avanzi (https://github.com/avanzzzi)
 
-set $base00 #1F2023
-set $base01 #23262C
-set $base02 #313040
-set $base03 #3A3F49
-set $base04 #525d73
-set $base05 #8b9cbe
-set $base06 #B2BFD9
-set $base07 #e9efff
-set $base08 #ff9cff
-set $base09 #796af5
-set $base0A #f0ee6e
-set $base0B #6fffff
-set $base0C #00eaff
-set $base0D #00caff
-set $base0E #50B0FF
-set $base0F #f850ac
+set $base00 #171e1f
+set $base01 #252c2d
+set $base02 #373c3d
+set $base03 #555e5f
+set $base04 #818f80
+set $base05 #c7c7a5
+set $base06 #e3e3c8
+set $base07 #e1eaef
+set $base08 #ff4658
+set $base09 #e6db74
+set $base0A #fdb11f
+set $base0B #499180
+set $base0C #66d9ef
+set $base0D #498091
+set $base0E #9bc0c8
+set $base0F #d27b53
 # End Flavours
 
 
@@ -105,6 +105,8 @@ title_align center
 ## Assignments
 for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
 for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
+for_window [app_id="^.*" floating ] border none
+for_window [class="^.*" floating ] border none
 for_window [app_id="anki"] floating enable, resize set height 510, resize set width 910
 for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 ##for_window [app_id="anki" title=".*Add*." workspace="5"] floating disable, opacity 1
@@ -115,9 +117,10 @@ for_window [app_id="imv" title=".*Mangas.*"] move workspace 10, workspace 10, fl
 for_window [app_id="zenity"] floating enable
 for_window [app_id="Alacritty - ncmpcpp"] floating enable, resize set height 600, resize width set 600
 for_window [app_id="Alacritty - bluetoothctl"] floating enable, resize set height 200, resize width set 600
-for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0
+for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0, border none
 for_window [app_id="Alacritty - dropdown"] floating enable, move position 0 -32, resize set height 200, resize width set 600
 for_window [app_id="Alacritty - notes"] floating enable, move position 0 0 
+for_window [app_id="Alacritty - colurs.sh"] resize set height 684, resize set width 384, move position 1525 0
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
 for_window [title="Edit Message"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
@@ -140,10 +143,10 @@ for_window [title="^Google Pixel 3 XL.*"] resize set width 29 ppt
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 39424E' \
+         timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 		 timeout 900 'systemctl suspend' \
-         before-sleep 'swaylock -f -c 39424E' \
+         before-sleep 'swaylock -f' \
 
  
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -344,9 +347,22 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+ctrl+l exec swaylock
 
 ## Applications
-bindsym $mod+Escape exec nwggrid -b "$base00DA" -s 96 -d "$HOME/Desktop/"
-bindsym $mod+m exec nwggrid -b "$base00DA" -s 256 -d "$HOME/Mangas/.Desktops/"
+mode applications {
+	bindsym e exec $term -e vifm, mode "default"
+	bindsym f exec firefox, mode "default"
+	bindsym m exec $term --class 'Alacritty - ncmpcpp' -e "ncmpcpp", mode "default"
+	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e "bluetoothctl", mode "default"
+	bindsym c exec $term --class 'Alacritty - colurs.sh' -e "$HOME/.scripts/colurs.sh", mode "default"
+	bindsym s exec "scrcpy -t", mode "default"
+	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
+	bindsym shift+a exec $HOME/.scripts/genystart.sh -a, mode "default"
+	bindsym r exec $term --class 'Alacritty - dropdown', mode "default"
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
 
+bindsym $mod+Escape mode applications 
+bindsym $mod+m exec nwggrid -b "$base00DA" -s 256 -d "$HOME/Mangas/.Desktops/"
 bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | $typer | $HOME/.scripts/dictdialog.sh
 
 ## bindsym $mod+shift+f exec $term --class 'Alacritty - Finder' -e "xdg-open $(fd --full-path $HOME | fzf)" , mode "default"

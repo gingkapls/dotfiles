@@ -2,36 +2,35 @@ max-visible=5
 border-radius=8
 border-size=4
 width=295
-height=0
 default-timeout=5000
 font=Iosveka Heavy Oblique 14
-padding=15
-margin=18,20,0,0
+padding=10
+margin=10,10,0,0
 group-by=app-name
 max-icon-size=96
 layer=overlay
 icons=1
 
 # Start flavours
-## Base16 vice
-# Author: Thomas Leon Highbaugh thighbaugh@zoho.com
+## Base16 darkmoss
+# Author: Gabriel Avanzi (https://github.com/avanzzzi)
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#1F2023
-text-color=#e9efff
-border-color=#00caff
-progress-color=source #00caff
+background-color=#171e1f
+text-color=#c7c7a5
+border-color=#9bc0c8
+progress-color=source #9bc0c8
 
 [urgency=low]
-background-color=#1F2023
-text-color=#f0ee6e
-border-color=#00caff
+background-color=#171e1f
+text-color=#fdb11f
+border-color=#498091
 
 [urgency=high]
-background-color=#1F2023
-text-color=#ff9cff
-border-color=#00caff
+background-color=#171e1f
+text-color=#ff4658
+border-color=#498091
 # End flavours
 
 format=<b>%s</b>\n%b 
@@ -41,3 +40,18 @@ icon-path="/usr/share/icons/McMojave-circle-dark/devices/scalable/:/usr/share/ic
 [grouped]
 format=<b>%s</b>\n%b
 
+[app-name="progressbar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+
+[app-name="volumebar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+
+[app-name="brightnessbar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+
+[app-name="screenshots"]
+max-icon-size=256
+format=
