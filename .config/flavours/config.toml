@@ -79,4 +79,8 @@ subtemplate = 'gtk-3'
 hook = 'bash -c "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme FlatColor"'
 rewrite = true
 
-
+[[item]]
+file = '~/.config/nwg-launchers/colors.css'
+template = 'nwg-launchers'
+subtemplate = 'default'
+rewrite = true

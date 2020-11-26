@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 pushd "$1" 
 series="$(pwd | awk -F "/" '{print $NF}')"

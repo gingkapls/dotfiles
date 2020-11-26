@@ -12,30 +12,30 @@ layer=overlay
 icons=1
 
 # Start flavours
-## Base16 darkmoss
-# Author: Gabriel Avanzi (https://github.com/avanzzzi)
+## Base16 OceanicNext
+# Author: https://github.com/voronianski/oceanic-next-color-scheme
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#171e1f
-text-color=#c7c7a5
-border-color=#9bc0c8
-progress-color=source #9bc0c8
+background-color=#1B2B34
+text-color=#C0C5CE
+border-color=#C594C5
+progress-color=source #C594C5
 
 [urgency=low]
-background-color=#171e1f
-text-color=#fdb11f
-border-color=#498091
+background-color=#1B2B34
+text-color=#FAC863
+border-color=#6699CC
 
 [urgency=high]
-background-color=#171e1f
-text-color=#ff4658
-border-color=#498091
+background-color=#1B2B34
+text-color=#EC5f67
+border-color=#6699CC
 # End flavours
 
 format=<b>%s</b>\n%b 
 
-icon-path="/usr/share/icons/McMojave-circle-dark/devices/scalable/:/usr/share/icons/McMojave-circle-dark/devices/symbolic/:/usr/share/icons/McMojave-circle-dark/status/symbolic/:/usr/share/icons/McMojave-circle-dark/status/32/:/usr/share/icons/McMojave-circle-dark/devices/24/:/usr/share/icons/McMojave-circle-dark/devices/22/:/usr/share/icons/McMojave-circle-dark/devices/16/:/usr/share/icons/McMojave-circle-dark/status/22/:/usr/share/icons/McMojave-circle-dark/status/16/"
+icon-path=/usr/share/icons/Adwaita
 
 [grouped]
 format=<b>%s</b>\n%b

@@ -1,0 +1,7 @@
+default:
+  extension: .css
+  output: colors
+
+manga:
+  extension: .css
+  output: colors

@@ -1,0 +1,54 @@
+@import url("../colors.css");
+
+* {
+	font-family: Iosveka;
+	font-size: 18px;
+	font-style: Oblique;
+	font-weight: 900;
+}
+
+button, label, image {
+    background: none;
+    border-style: none;
+    box-shadow: none;
+    color: @base05;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+	box-shadow: 0 0 8 4 @base01;
+    background-color: @base01;
+}
+
+button:hover {
+    background-color: @base03;
+    border-color: @base01;
+	box-shadow: 0 0 8 10 @base07;
+}
+
+button:focus {
+    box-shadow: 0 0 8 5px @base0E;
+}
+
+#searchbox {
+    background: @base00;
+    border-color: @base01;
+    color: @base05;
+    margin-top: 20px;
+    margin-bottom: 20px;
+	box-shadow: 0 0 8 6 @base01; 
+}
+
+#separator {
+    background-color: @base07; 
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+#description {
+    margin-bottom: 20px;
+	background-color: @base00;
+}

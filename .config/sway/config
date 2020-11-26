@@ -18,25 +18,25 @@ set $right l
 set $term alacritty
 
 # Start Flavours
-## Base16 darkmoss
-# Author: Gabriel Avanzi (https://github.com/avanzzzi)
+## Base16 OceanicNext
+# Author: https://github.com/voronianski/oceanic-next-color-scheme
 
-set $base00 #171e1f
-set $base01 #252c2d
-set $base02 #373c3d
-set $base03 #555e5f
-set $base04 #818f80
-set $base05 #c7c7a5
-set $base06 #e3e3c8
-set $base07 #e1eaef
-set $base08 #ff4658
-set $base09 #e6db74
-set $base0A #fdb11f
-set $base0B #499180
-set $base0C #66d9ef
-set $base0D #498091
-set $base0E #9bc0c8
-set $base0F #d27b53
+set $base00 #1B2B34
+set $base01 #343D46
+set $base02 #4F5B66
+set $base03 #65737E
+set $base04 #A7ADBA
+set $base05 #C0C5CE
+set $base06 #CDD3DE
+set $base07 #D8DEE9
+set $base08 #EC5f67
+set $base09 #F99157
+set $base0A #FAC863
+set $base0B #99C794
+set $base0C #5FB3B3
+set $base0D #6699CC
+set $base0E #C594C5
+set $base0F #AB7967
 # End Flavours
 
 
@@ -362,7 +362,7 @@ mode applications {
 }
 
 bindsym $mod+Escape mode applications 
-bindsym $mod+m exec nwggrid -b "$base00DA" -s 256 -d "$HOME/Mangas/.Desktops/"
+bindsym $mod+m exec nwggrid -b "$base00" -o 1.00 -s 256 -d "$HOME/Mangas/.Desktops/"
 bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | $typer | $HOME/.scripts/dictdialog.sh
 
 ## bindsym $mod+shift+f exec $term --class 'Alacritty - Finder' -e "xdg-open $(fd --full-path $HOME | fzf)" , mode "default"
