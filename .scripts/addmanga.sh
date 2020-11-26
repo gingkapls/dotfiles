@@ -4,7 +4,7 @@ pushd "$1"
 series="$(pwd | awk -F "/" '{print $NF}')"
 
 while read -r manga; do 
-	name="$(echo $manga | perl -pe 's/Vol\..\d\s//;' -e 's/Ch.\d*\K.+//g;' -e 's/\d+/sprintf("%02d",$&)/ge;' -e 's/(.*)/\U$1/g')" ## Cleaning up the chapter name
+		name="$(echo $manga | perl -pe 's/Vol\..\d\s//;' -e 's/Ch.(\d|\.)*\K.+//g;' -e 's/\d+/sprintf("%02d",$&)/e;' -e 's/(.*)/\U$1/g')" ## Cleaning up the chapter name
 	chapter="$(echo $manga | perl -pe 's/.*-//g;' -e 's/\(gb\).*|^\s*//g;' -e 's/\s$//g' )"
 #	echo -ne "\r $PWD/$manga"
 	echo -ne "\r $series $name"
