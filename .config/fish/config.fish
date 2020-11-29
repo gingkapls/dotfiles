@@ -5,6 +5,8 @@ source $HOME/.config/fish/fish_env
 
 source $HOME/.config/fish/fish_aliases
 
+source $HOME/.config/fish/fish_colors
+
 if [ -z $DISPLAY ] && [ $XDG_VTNR -le 2 ]
 	figlet (date +"%F %T") | lolcat
 	figlet "Hi $USER !" | lolcat

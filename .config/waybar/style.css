@@ -100,11 +100,11 @@ label:focus {
 }
 
 #window {
-	color: @base0F;
+	color: @base0D;
 }
 
 #clock {
-	color: @base0C;
+	color: @base0A;
 }
 
 /*

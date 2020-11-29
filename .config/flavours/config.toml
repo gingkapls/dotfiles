@@ -84,3 +84,9 @@ file = '~/.config/nwg-launchers/colors.css'
 template = 'nwg-launchers'
 subtemplate = 'default'
 rewrite = true
+
+[[item]]
+file = '~/.config/fish/fish_colors'
+template = 'fish'
+subtemplate = 'default'
+rewrite = true

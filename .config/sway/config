@@ -18,25 +18,25 @@ set $right l
 set $term alacritty
 
 # Start Flavours
-## Base16 OceanicNext
-# Author: https://github.com/voronianski/oceanic-next-color-scheme
+## Base16 Gruvbox dark, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-set $base00 #1B2B34
-set $base01 #343D46
-set $base02 #4F5B66
-set $base03 #65737E
-set $base04 #A7ADBA
-set $base05 #C0C5CE
-set $base06 #CDD3DE
-set $base07 #D8DEE9
-set $base08 #EC5f67
-set $base09 #F99157
-set $base0A #FAC863
-set $base0B #99C794
-set $base0C #5FB3B3
-set $base0D #6699CC
-set $base0E #C594C5
-set $base0F #AB7967
+set $base00 #282828
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #bdae93
+set $base05 #d5c4a1
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+set $base08 #fb4934
+set $base09 #fe8019
+set $base0A #fabd2f
+set $base0B #b8bb26
+set $base0C #8ec07c
+set $base0D #83a598
+set $base0E #d3869b
+set $base0F #d65d0e
 # End Flavours
 
 
@@ -44,10 +44,10 @@ set $base0F #AB7967
 # output "*" background $wallpaper fill
 output "*" bg $base00 solid_color
 
-client.focused 			$base00 $base00 $base0F $base01 $base0E
+client.focused 			$base00 $base00 $base0D $base01 $base0E
 client.unfocused 		$base00 $base00 $base07 $base01 $base02
 client.focused_inactive $base00 $base00 $base0E $base01 $base01
-client.urgent 			$base01 $base00 $base07 $base01 $base06
+client.urgent 			$base01 $base00 $base08 $base01 $base06
 
 ## Font
 font pango:Iosveka Heavy Oblique 12

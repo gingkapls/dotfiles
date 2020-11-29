@@ -18,7 +18,7 @@ set infercase
 " }}
 
 " Text {{
-set display+=lastline
+set display+=truncate
 set encoding=utf-8
 set linebreak
 set wrap
@@ -27,6 +27,8 @@ set spelllang=en_us,en_gb
 set spell
 set ai
 set tabstop=4
+set shiftwidth=4
+set expandtab
 set scrolloff=999
 set backspace=indent,eol,start
 " }}
@@ -38,11 +40,11 @@ command DATE :r !printf "\%s \%s" "\#\#" (date)
 
 " Bindings {{
 let mapleader= " "
-nnoremap <silent> <Leader>y "*y
-nnoremap <silent> <Leader>p :r !wl-paste 2>/dev/null<CR>
-nnoremap <silent> <Leader>P :r !wl-paste -p 2>/dev/null<CR>
-inoremap <silent> \p <C-o>:r !wl-paste 2>/dev/null<CR>
-inoremap <silent> \P <C-o>:r !wl-paste -p 2>/dev/null<CR>
+vnoremap <Leader>y :'<,'> call Test() <CR>
+nnoremap <silent> <Leader>p :r !wl-paste --no-newline 2>/dev/null<CR>
+nnoremap <silent> <Leader>P :r !wl-paste -p --no-newline 2>/dev/null<CR>
+inoremap <silent> \p <C-o>:r !wl-paste --no-newline 2>/dev/null<CR>
+inoremap <silent> \P <C-o>:r !wl-paste -p --no-newline 2>/dev/null<CR>
 " nnoremap <Leader>Y "+y
 " nnoremap <Leader>P "+p
 nnoremap ;n :bn<CR>
@@ -211,3 +213,13 @@ call plug#end()
 " Colors {{
 colorscheme base16-generated
 " }}
+
+"" Functions {{
+function Test() range 
+  let current_pos = getpos(".")
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\r")).'| wl-copy')
+  echo "yanked to clipboard"
+  call setpos(".", current_pos)
+endfunction
+"}}
+

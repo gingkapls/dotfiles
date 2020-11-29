@@ -1,7 +1,7 @@
 max-visible=5
 border-radius=8
 border-size=4
-width=295
+width=300
 default-timeout=5000
 font=Iosveka Heavy Oblique 14
 padding=10
@@ -12,25 +12,25 @@ layer=overlay
 icons=1
 
 # Start flavours
-## Base16 OceanicNext
-# Author: https://github.com/voronianski/oceanic-next-color-scheme
+## Base16 Gruvbox dark, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#1B2B34
-text-color=#C0C5CE
-border-color=#C594C5
-progress-color=source #C594C5
+background-color=#282828
+text-color=#d5c4a1
+border-color=#d3869b
+progress-color=source #d3869b
 
 [urgency=low]
-background-color=#1B2B34
-text-color=#FAC863
-border-color=#6699CC
+background-color=#282828
+text-color=#fabd2f
+border-color=#83a598
 
 [urgency=high]
-background-color=#1B2B34
-text-color=#EC5f67
-border-color=#6699CC
+background-color=#282828
+text-color=#fb4934
+border-color=#83a598
 # End flavours
 
 format=<b>%s</b>\n%b 
@@ -54,4 +54,11 @@ padding=0
 
 [app-name="screenshots"]
 max-icon-size=256
+width=300
 format=
+padding=16
+
+[app-name="colorpicker"]
+max-icon-size=256
+width=256
+padding=16
