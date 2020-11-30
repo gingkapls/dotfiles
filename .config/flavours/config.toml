@@ -89,4 +89,5 @@ rewrite = true
 file = '~/.config/fish/fish_colors'
 template = 'fish'
 subtemplate = 'default'
+hook = 'fish -c "source ~/.config/fish/fish_colors"'
 rewrite = true

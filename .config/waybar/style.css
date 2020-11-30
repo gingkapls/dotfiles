@@ -163,7 +163,7 @@ label:focus {
 }
 
 #mpd.paused {
-    color: @base04;
+    color: @base03;
 }
 
 #custom-wf-recorder {

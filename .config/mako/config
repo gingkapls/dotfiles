@@ -12,25 +12,25 @@ layer=overlay
 icons=1
 
 # Start flavours
-## Base16 Gruvbox dark, medium
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#282828
-text-color=#d5c4a1
-border-color=#d3869b
-progress-color=source #d3869b
+background-color=#282936
+text-color=#e9e9f4
+border-color=#62d6e8
+progress-color=source #62d6e8
 
 [urgency=low]
-background-color=#282828
-text-color=#fabd2f
-border-color=#83a598
+background-color=#282936
+text-color=#00f769
+border-color=#62d6e8
 
 [urgency=high]
-background-color=#282828
-text-color=#fb4934
-border-color=#83a598
+background-color=#282936
+text-color=#ea51b2
+border-color=#62d6e8
 # End flavours
 
 format=<b>%s</b>\n%b 

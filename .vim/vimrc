@@ -38,6 +38,15 @@ command WC :silent w! /tmp/vimword | :r !echo Word Count: (cat /tmp/vimword | wc
 command DATE :r !printf "\%s \%s" "\#\#" (date)
 " }}
 
+" Functions {{
+function Test() range 
+  let current_pos = getpos(".")
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\r")).'| wl-copy')
+  echo "yanked to clipboard"
+  call setpos(".", current_pos)
+endfunction
+" }}
+
 " Bindings {{
 let mapleader= " "
 vnoremap <Leader>y :'<,'> call Test() <CR>
@@ -45,8 +54,9 @@ nnoremap <silent> <Leader>p :r !wl-paste --no-newline 2>/dev/null<CR>
 nnoremap <silent> <Leader>P :r !wl-paste -p --no-newline 2>/dev/null<CR>
 inoremap <silent> \p <C-o>:r !wl-paste --no-newline 2>/dev/null<CR>
 inoremap <silent> \P <C-o>:r !wl-paste -p --no-newline 2>/dev/null<CR>
-" nnoremap <Leader>Y "+y
-" nnoremap <Leader>P "+p
+nmap Y y$
+
+" Buffers
 nnoremap ;n :bn<CR>
 nnoremap ;p :bp<CR>
 nnoremap ;d :bd<CR>
@@ -57,14 +67,19 @@ nnoremap <Leader>g :Goyo <CR>
 nnoremap <Leader>z xu/<C-R>-<CR>
 nnoremap <Leader>x xu:%s/<C-R>-//g<CR>
 nnoremap \. f.a<CR><ESC>
-" }}
-
-" Saving and Quitting {{
 nnoremap \w :w <CR>
 nnoremap \q :q<CR>
-" }}
 
-" Tabs {{
+" Navigation
+nnoremap k gk
+nnoremap j gj
+nnoremap <Leader>h <C-W><C-H>
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <silent> <Leader>e :Vexplore 15<CR>
+
+" Tabs
 nnoremap <Tab> gt
 nnoremap <Leader><Tab> gT
 nnoremap <Leader>t :tabedit
@@ -75,20 +90,6 @@ nnoremap <silent> <Leader><t_KG> :vertical res -5 <CR>
 nnoremap <silent> <Leader><t_KE> :res -5 <CR>
 nnoremap <silent> <Leader><t_KK> :res +5 <CR>
 nnoremap <silent> <Leader>r <C-W>R
-" }}
-
-" Navigation {{
-nnoremap k gk
-nnoremap j gj
-nnoremap <Leader>h <C-W><C-H>
-nnoremap <Leader>j <C-W><C-J>
-nnoremap <Leader>k <C-W><C-K>
-nnoremap <Leader>l <C-W><C-L>
-nnoremap <silent> <Leader>e :Vexplore 15<CR>
-" }}
-
-" Anki-vim {{
-autocmd BufEnter *.anki_vim :norm 10G
 
 " }}
 
@@ -143,53 +144,26 @@ set dir=~/.cache/vim
 " Limelight {{
 autocmd! User GoyoEnter Limelight0.6
 autocmd! User GoyoLeave Limelight!
-autocmd FileType markdown let g:limelight_mode = 'movement'
-autocmd FileType markdown let g:limelight_bop = '^'
-autocmd FileType markdown let g:limelight_eop = '$'
 " }}
 
 " Tab autocompletion {{
-"function! InsertTabWrapper(arg)
-"	let col = col('.') - 1
-"	if !col || getline('.')[col - 1] !~ '\k'
-"		return "\<tab>"
-"	else
-"		if a:arg == "1" 
-"				return "\<c-p>"
-"		else
-"				return "\<c-n>"
-"		endif
-"	endif
-"endfunction
-
-" autocmd FileType markdown inoremap <buffer> <expr> <tab> InsertTabWrapper("1")
-" autocmd FileType markdown inoremap <buffer> <expr> <s-tab> InsertTabWrapper("0")
+function! InsertTabWrapper(arg)
+	let col = col('.') - 1
+	if !col || getline('.')[col - 1] !~ '\k'
+		return "\<tab>"
+	else
+		if a:arg == "1" 
+				return "\<c-p>"
+		else
+				return "\<c-n>"
+		endif
+	endif
+endfunction
 " }}
 
 " Folds {{
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview 
-autocmd BufEnter *.tex set foldexpr=vimtex#fold#level(v:lnum)
-autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
-autocmd FileType vim set foldmethod=marker
-autocmd FileType vim set foldmarker={{,}}
-autocmd FileType markdown set foldmethod=marker
-autocmd FileType markdown set foldmarker={{,}}
-autocmd FileType css set foldmethod=marker
-autocmd FileType css set foldmarker={,}
-" }}
-
-" LaTeX {{
-let g:tex_flavor = 'latex'
-let g:livepreview_previewer = 'zathura'
-let g:vimtex_toc_config = {
-	\'split_pos' 	: ':vert :botright',
-	\'split_width'	: 50,
-	\}
-autocmd BufEnter *.tex set foldmethod=expr
-autocmd BufEnter *.tex set foldexpr=vimtex#fold#level(v:lnum)
-autocmd BufEnter *.tex set foldtext=vimtex#fold#text()
-nnoremap <silent> <leader>tt :VimtexTocToggle<CR>
 " }}
 
 " Ultisnips {{
@@ -200,7 +174,7 @@ let g:UltiSnipsEditSplit="vertical"
 " Plugins {{
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -213,13 +187,3 @@ call plug#end()
 " Colors {{
 colorscheme base16-generated
 " }}
-
-"" Functions {{
-function Test() range 
-  let current_pos = getpos(".")
-  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\r")).'| wl-copy')
-  echo "yanked to clipboard"
-  call setpos(".", current_pos)
-endfunction
-"}}
-
