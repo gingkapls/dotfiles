@@ -143,7 +143,7 @@ label:focus {
 }
 
 #idle_inhibitor {
-    color: @base04;
+    color: @base03;
 }
 
 #idle_inhibitor.activated {

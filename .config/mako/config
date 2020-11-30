@@ -3,13 +3,14 @@ border-radius=8
 border-size=4
 width=300
 default-timeout=5000
-font=Iosveka Heavy Oblique 14
+font=Iosveka Medium Oblique 14
 padding=10
 margin=10,10,0,0
 group-by=app-name
 max-icon-size=96
 layer=overlay
 icons=1
+markup=1
 
 # Start flavours
 ## Base16 Dracula
@@ -33,7 +34,7 @@ text-color=#ea51b2
 border-color=#62d6e8
 # End flavours
 
-format=<b>%s</b>\n%b 
+format=<b>%s</b>\n%b
 
 icon-path=/usr/share/icons/Adwaita
 
