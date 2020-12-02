@@ -80,7 +80,6 @@ nnoremap <Leader>l <C-W><C-L>
 nnoremap <silent> <Leader>e :Vexplore 15<CR>
 
 " Tabs
-nnoremap <Tab> gt
 nnoremap <Leader><Tab> gT
 nnoremap <Leader>t :tabedit
 nnoremap <Leader>v :vsplit

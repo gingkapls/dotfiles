@@ -32,7 +32,7 @@ rewrite = false
 file = '~/.config/swaylock/config'
 template = 'sway'
 subtemplate = 'swaylock'
-rewrite = true
+rewrite = false
 
 [[item]]
 file = '~/.config/zathura/zathurarc'
@@ -56,7 +56,7 @@ rewrite = true
 file = '~/.config/waybar/colors.css'
 template = 'waybar'
 subtemplate = 'default'
-hook = 'bash -c "killall waybar && waybar & disown"'
+hook = 'bash -c "pkill waybar;  waybar &"'
 rewrite = true
 
 [[item]]

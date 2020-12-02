@@ -1,0 +1,30 @@
+swipe:
+  3:
+    left:
+      command: exec swaymsg -t command workspace next
+    right:
+      command: exec swaymsg -t command workspace prev
+    up:
+      command: exec swaymsg -t command workspace current
+    down:
+      command: exec swaymsg -t command workspace current
+  4:
+
+    left:
+      command: exec swaymsg -t command move right
+    right:
+      command: exec swaymsg -t command move left
+    up:
+      command: exec swaymsg -t command move up
+    down:
+      command: exec swaymsg -t command move down
+
+threshhold:
+  swipe: 0.4
+  pinch: 0
+
+interval:
+  swipe: 0.8
+  pinch: .6
+ 
+

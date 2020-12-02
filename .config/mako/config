@@ -20,25 +20,18 @@ markup=1
 
 background-color=#1c2326
 text-color=#bacfc4
-border-color=#78f6c2
-progress-color=source #78f6c2
+border-color=#e47b4b
+progress-color=source #e47b4b
 
 [urgency=low]
 background-color=#1c2326
-text-color=#e47b4b
-border-color=#78f6c2
+text-color=#78f6c2
+border-color=#e47b4b
 
 [urgency=high]
 background-color=#1c2326
 text-color=#3e5eff
-border-color=#78f6c2
-
-[app-name="brightnessbar"]
-font=Iosveka Heavy Oblique 12
-padding=0
-border-color=#8d4fff
-progress-color=#8d4fff
-
+border-color=#e47b4b
 
 # End flavours
 
@@ -53,10 +46,6 @@ format=<b>%s</b>\n%b
 font=Iosveka Heavy Oblique 12
 padding=0
 
-[app-name="volumebar"]
-font=Iosveka Heavy Oblique 12
-padding=0
-
 [app-name="screenshots"]
 max-icon-size=256
 width=300
@@ -67,3 +56,13 @@ padding=16
 max-icon-size=256
 width=256
 padding=16
+
+[app-name="brightnessbar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+
+[app-name="volumebar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+
+

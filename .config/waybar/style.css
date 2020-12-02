@@ -42,22 +42,24 @@ window#waybar.solo {
 
 #workspaces button:hover {
     background: @base03;
-    box-shadow: inherit;
-    border-bottom: 3px solid @base06;
-	padding: 0 10px;
+    border-bottom: 3px solid @base05;
+	padding: 3px 10px;
 	margin: 2px 3px;
 }
 
 #workspaces button.focused {
+	padding: 3px 10px;
+	margin: 2px 3px;
     background-color: @base05;
 	color: @base00;
     border-bottom: 3px solid @base01;
-	padding: 0 10px;
-	margin: 2px 3px;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+	padding: 3px 10px;
+	margin: 2px 3px;
+    border-bottom: 3px solid @base0A;
 }
 
 #clock,
@@ -76,7 +78,7 @@ window#waybar.solo {
 #mpd {
     padding: 0 20px;
 	color: @base07;
-    border-bottom: 3px solid @base01;
+    border-bottom: 4px solid @base01;
 	background-color: @base00;
 }
 
@@ -155,7 +157,6 @@ label:focus {
 
 #tray {
     color: @base0E;
-	border-radius: 10px 0 0 10px;
 }
 
 #idle_inhibitor {
