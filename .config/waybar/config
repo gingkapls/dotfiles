@@ -3,14 +3,12 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
-    "modules-left": ["sway/workspaces", "mpd", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "backlight", "battery", "custom/wf-recorder", "clock", "tray"],
+    "modules-left": ["mpd", "sway/workspaces", "sway/mode"],
+    "modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "battery", "custom/wf-recorder", "clock", "tray"],
 
 	"sway/workspaces": {
 		"format": "{name}",
 	},
-
 
 	"sway/window": {
 		"format": " {} ",
@@ -32,7 +30,8 @@
 	},
 
     "mpd": {
-        "format": "<span font-style='normal'>{stateIcon}</span> {artist} - {title} <span font-style='normal'></span>",
+       // "format": "<span font-style='normal'>{stateIcon}</span> {artist} <span font-style='normal'></span>",
+       "format": "{stateIcon} {artist} <span font-weight='900'>╱╱</span> {title}",
         "format-disconnected": "Disconnected <span font-style='normal'></span>",
         "format-stopped": "Stopped <span font-style='normal'></span>",
 		"on-click": "exec mpc toggle",
@@ -58,7 +57,7 @@
             "paused": "",
             "playing": ""
         },
-        "tooltip-format": "MPD (connected)",
+        "tooltip-format": "{album}",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
 
@@ -77,7 +76,7 @@
 
     "clock": {
 		"format": "{:%a %d  <span font-style='normal'></span> %R}",
-        "format-alt": "{:%b %Y-%m-%d}",
+        "format-alt": "<span font-style='normal'> </span>{:%b %Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
     },
 
@@ -102,7 +101,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "<span font-style='normal'>{icon}</span> {percent}%",
-        "format-icons": ["", ""],
+        "format-icons": ["", "", ""],
 		"on-click": "exec $HOME/.scripts/setbrightness.sh"
     },
 

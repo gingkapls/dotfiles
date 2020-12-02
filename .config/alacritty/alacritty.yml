@@ -218,40 +218,40 @@ font:
   #indexed_colors: []
 
 # Start flavours
-# Base16 Dracula - alacritty color config
-# Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+# Base16 Generated - alacritty color config
+# Flavours
 colors:
   # Default colors
   primary:
-    background: '0x282936'
-    foreground: '0xe9e9f4'
+    background: '0x1c2326'
+    foreground: '0xbacfc4'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x282936'
-    cursor: '0xe9e9f4'
+    text: '0x1c2326'
+    cursor: '0xbacfc4'
 
   # Normal colors
   normal:
-    black:   '0x282936'
-    red:     '0xea51b2'
-    green:   '0xebff87'
-    yellow:  '0x00f769'
-    blue:    '0x62d6e8'
-    magenta: '0xb45bcf'
-    cyan:    '0xa1efe4'
-    white:   '0xe9e9f4'
+    black:   '0x1c2326'
+    red:     '0x3e5eff'
+    green:   '0x548445'
+    yellow:  '0xe47b4b'
+    blue:    '0x97fa48'
+    magenta: '0x78f6c2'
+    cyan:    '0x8d4fff'
+    white:   '0xbacfc4'
 
   # Bright colors
   bright:
-    black:   '0x626483'
-    red:     '0xb45bcf'
-    green:   '0x3a3c4e'
-    yellow:  '0x4d4f68'
-    blue:    '0x62d6e8'
-    magenta: '0xf1f2f8'
-    cyan:    '0x00f769'
-    white:   '0xf7f7fb'
+    black:   '0x7b8a85'
+    red:     '0xbd5c44'
+    green:   '0x3b4545'
+    yellow:  '0x5b6765'
+    blue:    '0x9aaca5'
+    magenta: '0xc4d6cd'
+    cyan:    '0xe660ba'
+    white:   '0xcfddd6'
 
 draw_bold_text_with_bright_colors: false
 # End Flavours

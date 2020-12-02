@@ -2,19 +2,19 @@
 
 * {
     border: none;
-    border-radius: 0;
+    border-radius: 20px 20px 20px 20px;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Iosveka;
-    font-size: 20px;
+    font-size: 18px;
     min-height: 0;
-	font-style: Oblique;
 	font-weight: 900;
+	padding: 2px 2px;
+	margin: 0 4px;
 }
 
 window#waybar {
-    background-color: @base00;
-    border-bottom: 3px @base0E;
-    color: @base07;
+    background-color: transparent;
+    border-bottom: 3px @base01;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -33,22 +33,27 @@ window#waybar.solo {
 */
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @base07;
-    border-bottom: 3px solid transparent;
+    padding: 3px 10px;
+	margin: 2px 3px;
+    background-color: @base00;
+    color: @base05;
+    border-bottom: 3px solid @base01;
 }
 
 #workspaces button:hover {
     background: @base03;
     box-shadow: inherit;
     border-bottom: 3px solid @base06;
+	padding: 0 10px;
+	margin: 2px 3px;
 }
 
 #workspaces button.focused {
     background-color: @base05;
 	color: @base00;
-    border-bottom: 3px solid @base07;
+    border-bottom: 3px solid @base01;
+	padding: 0 10px;
+	margin: 2px 3px;
 }
 
 #workspaces button.urgent {
@@ -69,9 +74,10 @@ window#waybar.solo {
 #idle_inhibitor,
 #custom-wf-recorder,
 #mpd {
-    padding: 0 6px;
-    margin: 0 4px;
+    padding: 0 20px;
 	color: @base07;
+    border-bottom: 3px solid @base01;
+	background-color: @base00;
 }
 
 #mode {
@@ -87,7 +93,7 @@ window#waybar.solo {
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c50;
+    color: @base0F;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -99,22 +105,31 @@ label:focus {
     color: @base00;
 }
 
+
+#battery {
+	color: @base0F;
+}
+
 #window {
 	color: @base0D;
+	background-color: @base01;
+	padding: 0 10px;
 }
 
 #clock {
 	color: @base0A;
 }
 
-/*
 #backlight {
-    color: rgb({color2.rgb});
+    color: @base0C;
 }
-*/
 
 #network.disconnected {
     color: #f53c3c;
+}
+
+#pulseaudio {
+	color: @base0E;
 }
 
 #pulseaudio.muted {
@@ -140,6 +155,7 @@ label:focus {
 
 #tray {
     color: @base0E;
+	border-radius: 10px 0 0 10px;
 }
 
 #idle_inhibitor {
@@ -147,11 +163,12 @@ label:focus {
 }
 
 #idle_inhibitor.activated {
-    color: @base07;
+    color: @base05;
 }
 
 #mpd {
-    color: @base0E;
+    color: @base00;
+	background-color: @base0A;
 }
 
 #mpd.disconnected {
@@ -163,7 +180,7 @@ label:focus {
 }
 
 #mpd.paused {
-    color: @base03;
+    color: @base00;
 }
 
 #custom-wf-recorder {

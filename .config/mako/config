@@ -13,25 +13,33 @@ icons=1
 markup=1
 
 # Start flavours
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+## Base16 Generated
+# Author: Flavours
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#282936
-text-color=#e9e9f4
-border-color=#62d6e8
-progress-color=source #62d6e8
+background-color=#1c2326
+text-color=#bacfc4
+border-color=#78f6c2
+progress-color=source #78f6c2
 
 [urgency=low]
-background-color=#282936
-text-color=#00f769
-border-color=#62d6e8
+background-color=#1c2326
+text-color=#e47b4b
+border-color=#78f6c2
 
 [urgency=high]
-background-color=#282936
-text-color=#ea51b2
-border-color=#62d6e8
+background-color=#1c2326
+text-color=#3e5eff
+border-color=#78f6c2
+
+[app-name="brightnessbar"]
+font=Iosveka Heavy Oblique 12
+padding=0
+border-color=#8d4fff
+progress-color=#8d4fff
+
+
 # End flavours
 
 format=<b>%s</b>\n%b
@@ -46,10 +54,6 @@ font=Iosveka Heavy Oblique 12
 padding=0
 
 [app-name="volumebar"]
-font=Iosveka Heavy Oblique 12
-padding=0
-
-[app-name="brightnessbar"]
 font=Iosveka Heavy Oblique 12
 padding=0
 

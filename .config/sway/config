@@ -9,31 +9,31 @@ set $right l
 set $term alacritty
 
 # Start Flavours
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+## Base16 Generated
+# Author: Flavours
 
-set $base00 #282936
-set $base01 #3a3c4e
-set $base02 #4d4f68
-set $base03 #626483
-set $base04 #62d6e8
-set $base05 #e9e9f4
-set $base06 #f1f2f8
-set $base07 #f7f7fb
-set $base08 #ea51b2
-set $base09 #b45bcf
-set $base0A #00f769
-set $base0B #ebff87
-set $base0C #a1efe4
-set $base0D #62d6e8
-set $base0E #b45bcf
-set $base0F #00f769
+set $base00 #1c2326
+set $base01 #3b4545
+set $base02 #5b6765
+set $base03 #7b8a85
+set $base04 #9aaca5
+set $base05 #bacfc4
+set $base06 #c4d6cd
+set $base07 #cfddd6
+set $base08 #3e5eff
+set $base09 #bd5c44
+set $base0A #e47b4b
+set $base0B #548445
+set $base0C #8d4fff
+set $base0D #97fa48
+set $base0E #78f6c2
+set $base0F #e660ba
 # End Flavours
 
 
 ## colors
 # output "*" background $wallpaper fill
-output "*" bg $base00 solid_color
+output "*" bg $HOME/.cache/wallpaper fill $base00 
 
 client.focused 			$base00 $base00 $base0D $base01 $base0E
 client.unfocused 		$base00 $base00 $base07 $base01 $base02
@@ -79,10 +79,9 @@ exec pulseeffects --gapplication-service
 
 ## settings
 default_border pixel 2
-gaps outer 0
 gaps inner 10
+gaps top -5
 smart_borders on
-smart_gaps on
 workspace_auto_back_and_forth yes
 xwayland enable
 titlebar_padding 10 4
@@ -93,13 +92,13 @@ title_align center
 ## Global
 for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
 for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
-for_window [floating] border none
 
 ## Apps
 for_window [app_id="anki"] floating enable, resize set height 510, resize set width 910
 for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 for_window [app_id="mpv"] floating enable
-for_window [app_id="imv"] floating enable
+for_window [app_id="imv"] floating enable, border none
+for_window [app_id="imv" title=".*backgrounds.*"] border none, move workspace 10, workspace 10, floating disable
 for_window [app_id="imv" title=".*Mangas.*"] move workspace 10, workspace 10, floating disable
 for_window [app_id="zenity"] floating enable
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
@@ -117,6 +116,7 @@ for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0, borde
 for_window [app_id="Alacritty - dropdown"] floating enable, move position 0 -32, resize set height 200, resize width set 600
 for_window [app_id="Alacritty - notes"] floating enable, move position 0 0 
 for_window [app_id="Alacritty - colurs.sh"] resize set height 684, resize set width 384, move position 1525 0
+for_window [app_id="Alacritty - walset.sh"] resize set height 384, resize set width 684, move position 0 0, opacity 0.8
 
 
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -286,14 +286,14 @@ mode applications {
 	bindsym s exec "scrcpy -t", mode "default"
 	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
 	bindsym shift+a exec $HOME/.scripts/genystart.sh -a, mode "default"
-	bindsym r exec $term --class 'Alacritty - dropdown', mode "default"
+	bindsym Return exec $term --class 'Alacritty - dropdown', mode "default"
 	bindsym Escape mode "default"
-	bindsym Return mode "default"
 }
 
 bindsym $mod+Escape mode applications 
 bindsym $mod+m exec nwggrid -b "$base00" -o 1.00 -s 256 -d "$HOME/Mangas/.Desktops/"
 bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | bemenu $menu -I1 | $HOME/.scripts/dictdialog.sh
+bindsym $mod+p exec $term --class 'Alacritty - walset.sh' -e "$HOME/.scripts/walset.sh"
 
 ## Screenshots
 bindsym Print exec "$HOME/.scripts/wlshot.sh" 
