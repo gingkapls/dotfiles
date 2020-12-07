@@ -1,6 +1,6 @@
 max-visible=5
 border-radius=8
-border-size=4
+border-size=2
 width=300
 default-timeout=5000
 font=Iosveka Medium Oblique 14
@@ -11,6 +11,16 @@ max-icon-size=96
 layer=overlay
 icons=1
 markup=1
+max-history=50
+actions=1
+on-button-left=invoke-default-action
+on-touch=invoke-default-action
+on-button-middle=dismiss
+on-button-right=invoke-default-action
+
+#############################################################
+#############################################################
+
 
 # Start flavours
 ## Base16 Generated
@@ -18,22 +28,25 @@ markup=1
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#1c2326
-text-color=#bacfc4
-border-color=#e47b4b
-progress-color=source #e47b4b
+background-color=#cdd0bc
+text-color=#2c1c1c
+border-color=#714f5a
+progress-color=source #714f5a
 
 [urgency=low]
-background-color=#1c2326
-text-color=#78f6c2
-border-color=#e47b4b
+background-color=#cdd0bc
+text-color=#62605d
+border-color=#714f5a
 
 [urgency=high]
-background-color=#1c2326
-text-color=#3e5eff
-border-color=#e47b4b
+background-color=#cdd0bc
+text-color=#5a616e
+border-color=#714f5a
 
 # End flavours
+
+#############################################################
+#############################################################
 
 format=<b>%s</b>\n%b
 
@@ -44,7 +57,7 @@ format=<b>%s</b>\n%b
 
 [app-name="progressbar"]
 font=Iosveka Heavy Oblique 12
-padding=0
+padding=0, 2, 1
 
 [app-name="screenshots"]
 max-icon-size=256
@@ -59,10 +72,13 @@ padding=16
 
 [app-name="brightnessbar"]
 font=Iosveka Heavy Oblique 12
-padding=0
+padding=0, 2, 1
 
 [app-name="volumebar"]
 font=Iosveka Heavy Oblique 12
-padding=0
+padding=1, 2, 1
+
+
+
 
 

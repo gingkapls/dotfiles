@@ -12,22 +12,22 @@ set $term alacritty
 ## Base16 Generated
 # Author: Flavours
 
-set $base00 #1c2326
-set $base01 #3b4545
-set $base02 #5b6765
-set $base03 #7b8a85
-set $base04 #9aaca5
-set $base05 #bacfc4
-set $base06 #c4d6cd
-set $base07 #cfddd6
-set $base08 #3e5eff
-set $base09 #bd5c44
-set $base0A #e47b4b
-set $base0B #548445
-set $base0C #8d4fff
-set $base0D #97fa48
-set $base0E #78f6c2
-set $base0F #e660ba
+set $base00 #cdd0bc
+set $base01 #adac9c
+set $base02 #8d887c
+set $base03 #6d645c
+set $base04 #4c403c
+set $base05 #2c1c1c
+set $base06 #251818
+set $base07 #1f1414
+set $base08 #5a616e
+set $base09 #606342
+set $base0A #714f5a
+set $base0B #a83f1d
+set $base0C #535961
+set $base0D #666149
+set $base0E #62605d
+set $base0F #834934
 # End Flavours
 
 
@@ -36,9 +36,9 @@ set $base0F #e660ba
 output "*" bg $HOME/.cache/wallpaper fill $base00 
 
 client.focused 			$base00 $base00 $base05 $base01 $base0E
-client.unfocused 		$base00 $base00 $base03 $base01 $base02
-client.focused_inactive $base00 $base00 $base03 $base01 $base01
-client.urgent 			$base01 $base00 $base08 $base01 $base06
+client.unfocused 		$base01 $base01 $base03 $base01 $base02
+client.focused_inactive $base03 $base03 $base00 $base01 $base01
+client.urgent 			$base0A $base0A $base08 $base01 $base06
 
 ## Font
 font pango:Iosveka Heavy Oblique 12
@@ -78,6 +78,7 @@ exec pulseeffects --gapplication-service
 ## exec libinput-gestures-setup restart
 
 ## settings
+default_floating_border none
 default_border pixel 2
 gaps inner 10
 gaps top -5
@@ -96,10 +97,11 @@ for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> 
 ## Apps
 for_window [app_id="anki"] floating enable, resize set height 510, resize set width 910
 for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
-for_window [app_id="mpv"] floating enable, border none
+for_window [app_id="guvcview" title="Guvcview.*fps.*"] floating enable
 for_window [app_id="imv"] floating enable, border none
 for_window [app_id="imv" title=".*backgrounds.*"] border none, move workspace 10, workspace 10, floating disable
 for_window [app_id="imv" title=".*Mangas.*"] border none, move workspace 10, workspace 10, floating disable
+for_window [app_id="mpv"] floating enable, border none
 for_window [app_id="zenity"] floating enable
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
 for_window [title="Edit Message"] floating enable
@@ -128,6 +130,12 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 		 timeout 900 'systemctl suspend' \
          before-sleep 'swaylock -f' \
+
+## exec swayidle -w \
+##          timeout 300 "$HOME/.scripts/locker.sh" \
+##          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+## 		 timeout 900 'systemctl suspend' \
+##          before-sleep "$HOME/.scripts/locker.sh"
 
  
 ### Input configuration
@@ -274,7 +282,8 @@ bindsym XF86AudioNext exec $HOME/.scripts/mpccontrols.sh forward
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 ## Lock
-bindsym $mod+ctrl+l exec swaylock
+bindsym $mod+ctrl+l exec swaylock -f
+##bindsym $mod+ctrl+l exec "$HOME/.scripts/locker.sh"
          
 ## Applications
 mode applications {

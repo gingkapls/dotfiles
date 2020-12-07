@@ -37,7 +37,7 @@ window#waybar.solo {
 	margin: 2px 3px;
     background-color: @base00;
     color: @base05;
-    border-bottom: 3px solid @base01;
+    border-bottom: 4px solid @base01;
 }
 
 #workspaces button:hover {
@@ -50,9 +50,9 @@ window#waybar.solo {
 #workspaces button.focused {
 	padding: 3px 10px;
 	margin: 2px 3px;
-    background-color: @base05;
+    background-color: @base03;
 	color: @base00;
-    border-bottom: 3px solid @base01;
+    border-bottom: 4px solid @base01;
 }
 
 #workspaces button.urgent {

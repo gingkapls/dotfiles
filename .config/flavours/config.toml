@@ -53,13 +53,6 @@ subtemplate = 'custom'
 rewrite = true
 
 [[item]]
-file = '~/.config/waybar/colors.css'
-template = 'waybar'
-subtemplate = 'default'
-hook = 'bash -c "pkill waybar;  waybar &"'
-rewrite = true
-
-[[item]]
 file = '~/.config/mako/config'
 template = 'mako'
 subtemplate = 'custom'
@@ -91,3 +84,11 @@ template = 'fish'
 subtemplate = 'default'
 hook = 'fish -c "source ~/.config/fish/fish_colors"'
 rewrite = true
+
+[[item]]
+file = '~/.config/waybar/colors.css'
+template = 'waybar'
+subtemplate = 'default'
+hook = 'bash -c "pkill -x waybar; waybar & disown"'
+rewrite = true
+

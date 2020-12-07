@@ -1,7 +1,8 @@
 #!/bin/sh
 
 pactl set-sink-volume @DEFAULT_SINK@ $1%;
-vol=$(pacmd list-sinks | awk 'c&&!--c;/* index*/{c=7};' | awk '{gsub(/%/,"",$5); print $5}')
+#vol=$(pacmd list-sinks | awk 'c&&!--c;/* index*/{c=7};' | awk '{gsub(/%/,"",$5); print $5}')
+vol=$(amixer sget Master | awk 'FNR==6 {print $(NF-1)}' | tr -cd '[:digit:]') ## Working with pipewire
 
 case $vol in
 		"0")
