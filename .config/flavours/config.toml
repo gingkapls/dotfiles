@@ -22,11 +22,11 @@
 # rewrite = false
 
 [[item]]
-file = '~/.config/sway/config'
+file = '~/.config/sway/colors'
 template = 'sway'
 subtemplate = 'colors'
 hook = 'swaymsg reload'
-rewrite = false
+rewrite = true
 
 [[item]]
 file = '~/.config/swaylock/config'
@@ -56,7 +56,7 @@ rewrite = true
 file = '~/.config/mako/config'
 template = 'mako'
 subtemplate = 'custom'
-hook = 'kill mako'
+hook = 'makoctl reload'
 rewrite = false
 
 [[item]]
@@ -89,6 +89,13 @@ rewrite = true
 file = '~/.config/waybar/colors.css'
 template = 'waybar'
 subtemplate = 'default'
-hook = 'bash -c "pkill -x waybar; waybar & disown"'
+hook = 'bash -c "pkill waybar; waybar & disown"'
 rewrite = true
+
+[[item]]
+file = '~/.cache/theme/shellcolors.sh'
+template = 'shell'
+subtemplate = 'default'
+rewrite = true
+
 

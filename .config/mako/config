@@ -1,11 +1,11 @@
 max-visible=5
 border-radius=8
-border-size=2
+border-size=3
 width=300
 default-timeout=5000
 font=Iosveka Medium Oblique 14
 padding=10
-margin=10,10,0,0
+margin=20,30,0,0
 group-by=app-name
 max-icon-size=96
 layer=overlay
@@ -23,25 +23,25 @@ on-button-right=invoke-default-action
 
 
 # Start flavours
-## Base16 Generated
-# Author: Flavours
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#cdd0bc
-text-color=#2c1c1c
-border-color=#714f5a
-progress-color=source #714f5a
+background-color=#282936
+text-color=#e9e9f4
+border-color=#00f769
+progress-color=source #00f769
 
 [urgency=low]
-background-color=#cdd0bc
-text-color=#62605d
-border-color=#714f5a
+background-color=#282936
+text-color=#b45bcf
+border-color=#00f769
 
 [urgency=high]
-background-color=#cdd0bc
-text-color=#5a616e
-border-color=#714f5a
+background-color=#282936
+text-color=#ea51b2
+border-color=#00f769
 
 # End flavours
 
@@ -77,8 +77,3 @@ padding=0, 2, 1
 [app-name="volumebar"]
 font=Iosveka Heavy Oblique 12
 padding=1, 2, 1
-
-
-
-
-

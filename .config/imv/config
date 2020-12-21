@@ -17,8 +17,8 @@ initial_pan = 50 0
 # Define some key bindings
 q = quit
 y = exec echo working!
-<Ctrl+l> = exec "$HOME/.scripts/pywalchange.sh" $imv_current_file -wl &
-<Ctrl+d> = exec "$HOME/.scripts/pywalchange.sh" $imv_current_file -wd &
+<Ctrl+l> = exec "$HOME/.scripts/walset.sh" $imv_current_file light &
+<Ctrl+d> = exec "$HOME/.scripts/walset.sh" $imv_current_file dark &
 
 # Image navigation
 <Left> = prev

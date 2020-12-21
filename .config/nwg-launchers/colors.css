@@ -1,23 +1,23 @@
 /*
 *
-* Base16 Generated
-* Author: Flavours
+* Base16 Dracula
+* Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 *
 */
 
-@define-color base00 #cdd0bc;
-@define-color base01 #adac9c;
-@define-color base02 #8d887c;
-@define-color base03 #6d645c;
-@define-color base04 #4c403c;
-@define-color base05 #2c1c1c;
-@define-color base06 #251818;
-@define-color base07 #1f1414;
-@define-color base08 #5a616e;
-@define-color base09 #606342;
-@define-color base0A #714f5a;
-@define-color base0B #a83f1d;
-@define-color base0C #535961;
-@define-color base0D #666149;
-@define-color base0E #62605d;
-@define-color base0F #834934;
+@define-color base00 #282936;
+@define-color base01 #3a3c4e;
+@define-color base02 #4d4f68;
+@define-color base03 #626483;
+@define-color base04 #62d6e8;
+@define-color base05 #e9e9f4;
+@define-color base06 #f1f2f8;
+@define-color base07 #f7f7fb;
+@define-color base08 #ea51b2;
+@define-color base09 #b45bcf;
+@define-color base0A #00f769;
+@define-color base0B #ebff87;
+@define-color base0C #a1efe4;
+@define-color base0D #62d6e8;
+@define-color base0E #b45bcf;
+@define-color base0F #00f769;

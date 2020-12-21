@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Generated scheme by Flavours
+" Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,43 +10,43 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 " if !has("gui_running")
 "   if exists("g:base16_shell_path")
-"     execute "silent !/bin/sh ".g:base16_shell_path."/base16-generated.sh"
+"     execute "silent !/bin/sh ".g:base16_shell_path."/base16-dracula.sh"
 "   endif
 " endif
 
 " GUI color definitions
-let s:gui00        = "cdd0bc"
-let g:base16_gui00 = "cdd0bc"
-let s:gui01        = "adac9c"
-let g:base16_gui01 = "adac9c"
-let s:gui02        = "8d887c"
-let g:base16_gui02 = "8d887c"
-let s:gui03        = "6d645c"
-let g:base16_gui03 = "6d645c"
-let s:gui04        = "4c403c"
-let g:base16_gui04 = "4c403c"
-let s:gui05        = "2c1c1c"
-let g:base16_gui05 = "2c1c1c"
-let s:gui06        = "251818"
-let g:base16_gui06 = "251818"
-let s:gui07        = "1f1414"
-let g:base16_gui07 = "1f1414"
-let s:gui08        = "5a616e"
-let g:base16_gui08 = "5a616e"
-let s:gui09        = "606342"
-let g:base16_gui09 = "606342"
-let s:gui0A        = "714f5a"
-let g:base16_gui0A = "714f5a"
-let s:gui0B        = "a83f1d"
-let g:base16_gui0B = "a83f1d"
-let s:gui0C        = "535961"
-let g:base16_gui0C = "535961"
-let s:gui0D        = "666149"
-let g:base16_gui0D = "666149"
-let s:gui0E        = "62605d"
-let g:base16_gui0E = "62605d"
-let s:gui0F        = "834934"
-let g:base16_gui0F = "834934"
+let s:gui00        = "282936"
+let g:base16_gui00 = "282936"
+let s:gui01        = "3a3c4e"
+let g:base16_gui01 = "3a3c4e"
+let s:gui02        = "4d4f68"
+let g:base16_gui02 = "4d4f68"
+let s:gui03        = "626483"
+let g:base16_gui03 = "626483"
+let s:gui04        = "62d6e8"
+let g:base16_gui04 = "62d6e8"
+let s:gui05        = "e9e9f4"
+let g:base16_gui05 = "e9e9f4"
+let s:gui06        = "f1f2f8"
+let g:base16_gui06 = "f1f2f8"
+let s:gui07        = "f7f7fb"
+let g:base16_gui07 = "f7f7fb"
+let s:gui08        = "ea51b2"
+let g:base16_gui08 = "ea51b2"
+let s:gui09        = "b45bcf"
+let g:base16_gui09 = "b45bcf"
+let s:gui0A        = "00f769"
+let g:base16_gui0A = "00f769"
+let s:gui0B        = "ebff87"
+let g:base16_gui0B = "ebff87"
+let s:gui0C        = "a1efe4"
+let g:base16_gui0C = "a1efe4"
+let s:gui0D        = "62d6e8"
+let g:base16_gui0D = "62d6e8"
+let s:gui0E        = "b45bcf"
+let g:base16_gui0E = "b45bcf"
+let s:gui0F        = "00f769"
+let g:base16_gui0F = "00f769"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -99,22 +99,22 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#cdd0bc"
-  let g:terminal_color_1 =  "#5a616e"
-  let g:terminal_color_2 =  "#a83f1d"
-  let g:terminal_color_3 =  "#714f5a"
-  let g:terminal_color_4 =  "#666149"
-  let g:terminal_color_5 =  "#62605d"
-  let g:terminal_color_6 =  "#535961"
-  let g:terminal_color_7 =  "#2c1c1c"
-  let g:terminal_color_8 =  "#6d645c"
-  let g:terminal_color_9 =  "#5a616e"
-  let g:terminal_color_10 = "#a83f1d"
-  let g:terminal_color_11 = "#714f5a"
-  let g:terminal_color_12 = "#666149"
-  let g:terminal_color_13 = "#62605d"
-  let g:terminal_color_14 = "#535961"
-  let g:terminal_color_15 = "#1f1414"
+  let g:terminal_color_0 =  "#282936"
+  let g:terminal_color_1 =  "#ea51b2"
+  let g:terminal_color_2 =  "#ebff87"
+  let g:terminal_color_3 =  "#00f769"
+  let g:terminal_color_4 =  "#62d6e8"
+  let g:terminal_color_5 =  "#b45bcf"
+  let g:terminal_color_6 =  "#a1efe4"
+  let g:terminal_color_7 =  "#e9e9f4"
+  let g:terminal_color_8 =  "#626483"
+  let g:terminal_color_9 =  "#ea51b2"
+  let g:terminal_color_10 = "#ebff87"
+  let g:terminal_color_11 = "#00f769"
+  let g:terminal_color_12 = "#62d6e8"
+  let g:terminal_color_13 = "#b45bcf"
+  let g:terminal_color_14 = "#a1efe4"
+  let g:terminal_color_15 = "#f7f7fb"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -123,29 +123,29 @@ if has("nvim")
   endif
 elseif has("terminal")
   let g:terminal_ansi_colors = [
-        \ "#cdd0bc",
-        \ "#5a616e",
-        \ "#a83f1d",
-        \ "#714f5a",
-        \ "#666149",
-        \ "#62605d",
-        \ "#535961",
-        \ "#2c1c1c",
-        \ "#6d645c",
-        \ "#5a616e",
-        \ "#a83f1d",
-        \ "#714f5a",
-        \ "#666149",
-        \ "#62605d",
-        \ "#535961",
-        \ "#1f1414",
+        \ "#282936",
+        \ "#ea51b2",
+        \ "#ebff87",
+        \ "#00f769",
+        \ "#62d6e8",
+        \ "#b45bcf",
+        \ "#a1efe4",
+        \ "#e9e9f4",
+        \ "#626483",
+        \ "#ea51b2",
+        \ "#ebff87",
+        \ "#00f769",
+        \ "#62d6e8",
+        \ "#b45bcf",
+        \ "#a1efe4",
+        \ "#f7f7fb",
         \ ]
 endif
 
 " Theme setup
 hi clear
 syntax reset
-" let g:colors_name = "base16-generated"
+" let g:colors_name = "base16-dracula"
 let g:colors_name = "base16-generated"
 
 " Highlighting function
@@ -181,6 +181,7 @@ endfun
 
 " Vim editor colors
 call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
+" call <sid>hi("Normal",        s:gui05, s:gui00, "none", s:cterm00, "", "")
 call <sid>hi("Bold",          "", "", "", "", "bold", "")
 call <sid>hi("Debug",         s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "", "")
@@ -188,15 +189,15 @@ call <sid>hi("Error",         s:gui00, s:gui08, s:cterm00, s:cterm08, "", "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("FoldColumn",    s:gui0C, s:gui01, s:cterm0B, s:cterm01, "", "")
-call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm0B, s:cterm00, "Bold", "")
-call <sid>hi("IncSearch",     s:gui01, s:gui09, s:cterm0B, s:cterm08, "none", "")
+call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm0D, s:cterm00, "Bold,Underline", "")
+call <sid>hi("IncSearch",     s:gui01, s:gui09, s:cterm00, s:cterm0F, "Bold,Underline", "")
 call <sid>hi("Italic",        "", "", "", "", "none", "")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("MatchParen",    "", s:gui03, "", s:cterm03,  "", "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm01, s:cterm07,  "", "")
+call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm0F, s:cterm00,  "Bold,Underline", "")
 call <sid>hi("Substitute",    s:gui01, s:gui0A, s:cterm01, s:cterm0A, "none", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "", "")
@@ -205,7 +206,7 @@ call <sid>hi("Visual",        "", s:gui02, "", s:cterm02, "", "")
 call <sid>hi("VisualNOS",     s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("WildMenu",      s:gui08, s:gui0A, s:cterm08, "", "", "")
-call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none", "")
+call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "bold", "")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
 call <sid>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "", "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "", "")
@@ -307,8 +308,8 @@ call <sid>hi("GitGutterDelete",  s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
 call <sid>hi("GitGutterChangeDelete",  s:gui0E, s:gui01, s:cterm0E, s:cterm01, "", "")
 
 " HTML highlighting
-call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "", "")
-call <sid>hi("htmlItalic",  s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "bold", "")
+call <sid>hi("htmlItalic",  s:gui0E, "", s:cterm0E, "", "italic", "")
 call <sid>hi("htmlEndTag",  s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("htmlTag",     s:gui05, "", s:cterm05, "", "", "")
 
@@ -386,10 +387,10 @@ call <sid>hi("SignifySignChange",  s:gui0D, s:gui01, s:cterm0D, s:cterm01, "", "
 call <sid>hi("SignifySignDelete",  s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad",     "", "", "05", "10", "undercurl", s:gui08)
-call <sid>hi("SpellLocal",   "", "", "81", "10", "undercurl", s:gui0C)
-call <sid>hi("SpellCap",     "", "", "81", "10", "undercurl", s:gui0D)
-call <sid>hi("SpellRare",    "", "", "81", "10", "undercurl", s:gui0E)
+call <sid>hi("SpellBad",     "", "", "03", "0", "undercurl", s:gui08)
+call <sid>hi("SpellLocal",   "", "", "81", "0", "undercurl", s:gui0C)
+call <sid>hi("SpellCap",     "", "", "81", "0", "undercurl", s:gui0D)
+call <sid>hi("SpellRare",    "", "", "81", "0", "undercurl", s:gui0E)
 
 " Startify highlighting
 call <sid>hi("StartifyBracket",  s:gui03, "", s:cterm03, "", "", "")

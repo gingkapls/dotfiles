@@ -10,12 +10,12 @@ echo $filename
 if [ -z $(pgrep wf-recorder) ];
 	then notify-send "Recording Started ($active)"
 	if [ "$1" == "-s" ]
-		then wf-recorder -f $HOME/Videos/Recordings/$filename -a "$active" -g "$(slurp -c "#FFFFFF")" >/dev/null 2>&1 &
+		then wf-recorder -f $HOME/Videos/Recordings/$filename -a "$active" -g "$(slurp -c "#000000")" >/dev/null 2>&1 &
 			sleep 2 
 			while [ ! -z $(pgrep -x slurp) ]; do wait; done
 			pkill -RTMIN+8 waybar
 	else if [ "$1" == "-w" ] 
-		then wf-recorder -f $HOME/Videos/Recordings/$filename -a "$active" -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -c "#FFFFFF" )" >/dev/null 2>&1 &
+		then wf-recorder -f $HOME/Videos/Recordings/$filename -a "$active" -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -c "#000000" )" >/dev/null 2>&1 &
 			 sleep 2
 			 while [ ! -z $(pgrep -x slurp) ]; do wait; done
 			 pkill -RTMIN+8 waybar

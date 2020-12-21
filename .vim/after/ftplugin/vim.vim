@@ -1,3 +1,2 @@
-setlocal foldmethod=marker
-setlocal foldmarker={{,}}
-
+set foldmethod=marker
+set foldmarker={{{,}}}

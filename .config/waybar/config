@@ -1,3 +1,4 @@
+// vim:fileencoding=utf-8:ft=conf:foldmethod=marker:foldmarker={,} 
 {
     "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
@@ -68,7 +69,7 @@
             "deactivated": ""
         }
     },
-	
+
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
@@ -119,9 +120,11 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+
     "battery#bat2": {
         "bat": "BAT2"
     },
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "<span font-style='normal'></span>",
@@ -132,6 +135,7 @@
 		"tooltip": true,
 		"tooltip-format": "{essid} ({signalStrength}%)",
     },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "<span font-style='normal'>{icon}</span> {volume}%",

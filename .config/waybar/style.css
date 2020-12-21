@@ -50,7 +50,7 @@ window#waybar.solo {
 #workspaces button.focused {
 	padding: 3px 10px;
 	margin: 2px 3px;
-    background-color: @base03;
+    background-color: @base0D;
 	color: @base00;
     border-bottom: 4px solid @base01;
 }
@@ -74,7 +74,6 @@ window#waybar.solo {
 #tray,
 #mode,
 #idle_inhibitor,
-#custom-wf-recorder,
 #mpd {
     padding: 0 20px;
 	color: @base07;
@@ -95,7 +94,7 @@ window#waybar.solo {
 }
 
 #battery.critical:not(.charging) {
-    color: @base0F;
+    color: @base0B;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -107,15 +106,21 @@ label:focus {
     color: @base00;
 }
 
-
 #battery {
-	color: @base0F;
+	color: @base0B;
 }
 
 #window {
 	color: @base0D;
 	background-color: @base01;
 	padding: 0 10px;
+}
+
+#custom-wf-recorder {
+    padding: 0 20px;
+	color: @base0D;
+    border-bottom: 4px solid @base01;
+	background-color: @base00;
 }
 
 #clock {
@@ -141,14 +146,6 @@ label:focus {
 #custom-media {
     color: #66cc99;
     min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    color: #ffa000;
 }
 
 #temperature.critical {
@@ -184,6 +181,3 @@ label:focus {
     color: @base00;
 }
 
-#custom-wf-recorder {
-    color: @base02;
-}
