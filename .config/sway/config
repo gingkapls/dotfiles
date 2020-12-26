@@ -1,24 +1,21 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker:foldmarker={{,}}
-# Logo key. Use Mod1 for Alt.             #
-#                                         #
-#=========================================#
+
 set $mod Mod4                             
-#=========================================#
-#                                         #
+
 set $left h                               
 set $down j                               
 set $up k                                                      
 set $right l                              
-#                                         #
-#=========================================#
+
 set $term alacritty                       
-#=========================================#
-#                                         #
+
 # Launcher                                #
 ## set $menu -H27 --nb '$base00' --nf '$base05' --fb '$base00' --ff '$base0D' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' -n --prompt=   
 set $menu -H27 --nb '#00000000' --nf '#00000000' --fb '#00000000' --ff '#00000000' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' -n --prompt=   
-#                                         #
-#=========================================#
+
+# Font                                    #
+font pango:Iosveka Heavy Oblique 12       
+
 # colors {{
 include $HOME/.config/sway/colors
 output "*" bg $HOME/.cache/theme/blurredwallpaper.png fill $base00 
@@ -27,14 +24,7 @@ client.focused 			$base00 $base00 $base05 $base01 $base0E
 client.unfocused 		$base01 $base01 $base03 $base01 $base02
 client.focused_inactive $base03 $base03 $base00 $base01 $base01
 client.urgent 			$base0A $base0A $base08 $base01 $base06
-
 # }}
-#=========================================#
-#                                         #
-# Font                                    #
-font pango:Iosveka Heavy Oblique 12       #
-#                                         #
-#=========================================#
 # Auto start {{
 exec waybar
 exec mako
@@ -46,9 +36,7 @@ exec $HOME/.scripts/mpdpreview.sh
 exec autotiling
 exec pulseeffects --gapplication-service
 # }}
-#=========================================#
-#                                         #
-# settings {{
+# Settings {{
 default_floating_border none
 default_border pixel 2
 gaps inner 10
@@ -59,15 +47,12 @@ xwayland enable
 titlebar_padding 10 4
 title_align center
 # }}
-#                                         #
-#=========================================#
 # Assignments {{
-
-# Global
+# Global {{
 for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
 for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
-
-# Apps
+# }}
+# Apps {{
 for_window [app_id="anki"] floating enable, resize set height 510, set width 910
 for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 for_window [app_id="guvcview" title="Guvcview.*fps.*"] floating enable
@@ -83,8 +68,8 @@ for_window [title="^wget.*"] inhibit_idle
 for_window [class="XEyes"] floating enable, sticky enable
 for_window [urgent="latest"] focus
 for_window [title="^Google Pixel 3 XL.*"] resize set width 29 ppt
-
-# Alacritty
+# }}
+# Alacritty {{
 for_window [app_id="Alacritty - ncmpcpp"] floating enable, resize set height 600, set width 600
 for_window [app_id="Alacritty - bluetoothctl"] floating enable, resize set height 200, set width 600
 for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0, border none
@@ -92,16 +77,16 @@ for_window [app_id="Alacritty - dropdown"] floating enable, move position 0 -32,
 for_window [app_id="Alacritty - notes"] floating enable, move position 0 0 
 for_window [app_id="Alacritty - colurs.sh"] resize set height 684, set width 384, move position 1525 0
 for_window [app_id="Alacritty - walset.sh"] resize set height 384, set width 684, move position 0 0, opacity 0.8
-
 # }}
-#=========================================#
+# }}
 # Applications {{
 mode applications {
 	bindsym e exec $term -e vifm, mode "default"
 	bindsym f exec firefox, mode "default"
 	bindsym m exec $term --class 'Alacritty - ncmpcpp' -e "ncmpcpp", mode "default"
 	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e "bluetoothctl", mode "default"
-    bindsym p exec imv "$HOME/backgrounds/images" && swaymsg workspace current, mode "default"
+    bindsym l exec $term --class 'Alacritty - walset.sh' -e '$HOME/.scripts/walset.sh light' && swaymsg workspace current, mode "default"
+    bindsym d exec $term --class 'Alacritty - walset.sh' -e '$HOME/.scripts/walset.sh dark' && swaymsg workspace current, mode "default"
 	bindsym c exec $term --class 'Alacritty - colurs.sh' -e "$HOME/.scripts/colurs.sh", mode "default"
 	bindsym s exec "scrcpy -t", mode "default"
 	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
@@ -113,31 +98,14 @@ mode applications {
 bindsym $mod+Escape mode applications 
 bindsym $mod+m exec nwggrid -b "$base00" -o 1.00 -s 256 -d "$HOME/Mangas/.Desktops/"
 bindsym $mod+shift+d exec echo "$(wl-paste) \n $(wl-paste -p)" | bemenu $menu -I1 | $HOME/.scripts/dictdialog.sh
-
 # }}
-#=========================================#
-#                                         #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-#                                         #
-#=========================================#
 # Idle configuration {{
 exec swayidle -w \
          timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 		 timeout 900 'systemctl suspend' \
          before-sleep 'swaylock -f' \
-
-# exec swayidle -w \
-#          timeout 300 "$HOME/.scripts/locker.sh" \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-# 		 timeout 900 'systemctl suspend' \
-#          before-sleep "$HOME/.scripts/locker.sh"
-
 # }}
-#=========================================#
-#                                         #
-#=========================================#
 # Input configuration {{
 
    input "1267:12433:ELAN0504:01_04F3:3091_Touchpad" {
@@ -152,9 +120,6 @@ exec swayidle -w \
    }
 
 # }}
-#=========================================#
-#                                         #
-#=========================================#
 # Key bindings {{
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
@@ -163,8 +128,7 @@ exec swayidle -w \
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     floating_modifier $mod normal
-#====================#
-# Moving around: {{
+# Moving around {{
 #
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -188,8 +152,7 @@ exec swayidle -w \
 
 	bindsym alt+tab focus next
 # }}
-#====================#
-# Workspaces: {{
+# Workspaces {{
 #
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -221,8 +184,7 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10, workspace number 10
 
 # }}
-#====================#
-# Layout stuff: {{
+# Layout stuff {{
 #
     bindsym $mod+a split toggle
     bindsym $mod+e layout toggle split | tabbed
@@ -231,13 +193,11 @@ exec swayidle -w \
     bindsym $mod+c layout toggle stacking | split
     bindsym $mod+space focus mode_toggle
 # }}
-#====================#
-# Scratchpad: {{
+# Scratchpad {{
     bindsym $mod+Shift+o move scratchpad
 	bindsym $mod+Ctrl+o sticky toggle
     bindsym $mod+o scratchpad show
 # }}
-#====================#
 # GAPS {{
 mode "gaps" {
 	bindsym KP_ADD gaps outer current plus 1
@@ -251,8 +211,7 @@ mode "gaps" {
 
 bindsym $mod+g mode "gaps"
 # }}
-#====================#
-# Resizing containers: {{
+# Resizing containers {{
 mode "resize" {
     bindsym $up		resize shrink height 10px
     bindsym $left	resize shrink width 10px
@@ -274,19 +233,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 # }}
-#====================#
 # Volume keys {{
 bindsym XF86AudioRaiseVolume exec "$HOME/.scripts/setvolume.sh +5"
 bindsym XF86AudioLowerVolume exec "$HOME/.scripts/setvolume.sh -5"
 bindsym shift+XF86AudioRaiseVolume exec "$HOME/.scripts/setvolume.sh +1"
 bindsym shift+XF86AudioLowerVolume exec "$HOME/.scripts/setvolume.sh -1"
 # }}
-#====================#
 # Brightness keys {{
 bindsym XF86MonBrightnessUp exec "$HOME/.scripts/setbrightness.sh 1.2023"
 bindsym XF86MonBrightnessDown exec "$HOME/.scripts/setbrightness.sh 0.831739"
 # }} 
-#====================#
 # Media keys {{
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
@@ -294,28 +250,22 @@ bindsym XF86AudioPrev exec $HOME/.scripts/mpccontrols.sh backward
 bindsym XF86AudioNext exec $HOME/.scripts/mpccontrols.sh forward
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 # }}
-#====================#
 # Lock {{
 bindsym $mod+ctrl+l exec swaylock -f
 #bindsym $mod+ctrl+l exec "$HOME/.scripts/locker.sh"
 # }}
-#====================#
 # Screenshots {{
 bindsym Print exec "$HOME/.scripts/wlshot.sh" 
 bindsym ctrl+Print exec "$HOME/.scripts/wlshot.sh -p" 
 bindsym shift+Print exec "$HOME/.scripts/wlshot.sh -w"
 bindsym alt+Print exec "$HOME/.scripts/wlshot.sh -c" 
 # }}
-#====================#
 # Recording {{
 bindsym $mod+Print exec "$HOME/.scripts/wlrecord.sh" 
 bindsym $mod+ctrl+Print exec "$HOME/.scripts/wlrecord.sh -s" 
 bindsym $mod+Shift+Print exec "$HOME/.scripts/wlrecord.sh -w" 
 # }}
-#====================#
 # }}
-#=========================================#
-#                                         #
 #=========================================#
 include /etc/sway/config.d/*              
 #=========================================#
