@@ -30,5 +30,5 @@ else
 	while [ ! -z $(pgrep -x wf-recorder) ]; do wait; done
 	pkill -RTMIN+8 waybar
 	name="$(zenity --entry --text "enter a filename")"
-	perl-rename "s/\.(mkv|mp4)$/ $name $&/" $(ls -d $HOME/Videos/Recordings/* -t | head -n1)
+	perl-rename "s/\.(mkv|mp4)$/ $name$&/" $(ls -d $HOME/Videos/Recordings/* -t | head -n1)
 fi

@@ -11,19 +11,32 @@ set $term alacritty
 
 # Launcher                                #
 ## set $menu -H27 --nb '$base00' --nf '$base05' --fb '$base00' --ff '$base0D' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' -n --prompt=   
-set $menu -H27 --nb '#00000000' --nf '#00000000' --fb '#00000000' --ff '#00000000' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' -n --prompt=   
+set $menu -H27 --nb '#00000000' --nf '#00000000' --fb '#00000000' --ff '#00000000' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' --no-overlap --prompt=   
 
 # Font                                    #
 font pango:Iosveka Heavy Oblique 12       
 
 # colors {{
 include $HOME/.config/sway/colors
-output "*" bg $HOME/.cache/theme/blurredwallpaper.png fill $base00 
+output "*" bg $HOME/.cache/theme/wallpaper fill $base00 
 
-client.focused 			$base00 $base00 $base05 $base01 $base0E
-client.unfocused 		$base01 $base01 $base03 $base01 $base02
-client.focused_inactive $base03 $base03 $base00 $base01 $base01
-client.urgent 			$base0A $base0A $base08 $base01 $base06
+## class				 border 	background	 text		indicator	child-border
+client.focused 			$base0A 	$base00 	$base05 	$base01 	$base0A
+client.unfocused 		$base00 	$base00 	$base03 	$base01 	$base00
+client.focused_inactive $base00 	$base00 	$base00 	$base01 	$base00
+client.urgent 			$base00 	$base0A 	$base08 	$base01 	$base00
+# }}
+# Settings {{
+default_floating_border none
+default_border pixel 2
+# gaps inner 0
+gaps outer 10
+gaps top -5
+smart_borders on
+workspace_auto_back_and_forth yes
+xwayland enable
+titlebar_padding 10 4
+title_align center
 # }}
 # Auto start {{
 exec waybar
@@ -36,16 +49,20 @@ exec $HOME/.scripts/mpdpreview.sh
 exec autotiling
 exec pulseeffects --gapplication-service
 # }}
-# Settings {{
-default_floating_border none
-default_border pixel 2
-gaps inner 10
-gaps top -5
-smart_borders on
-workspace_auto_back_and_forth yes
-xwayland enable
-titlebar_padding 10 4
-title_align center
+# Input configuration {{
+
+   input "1267:12433:ELAN0504:01_04F3:3091_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+
+   input "1:1:AT_Translated_Set_2_keyboard" {
+       xkb_options "caps:swapescape,compose:ralt"
+	   repeat_rate 40
+   }
+
 # }}
 # Assignments {{
 # Global {{
@@ -53,6 +70,7 @@ for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (
 for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
 # }}
 # Apps {{
+for_window [app_id="wlroots"] shortcuts_inhibitor activate
 for_window [app_id="anki"] floating enable, resize set height 510, set width 910
 for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 for_window [app_id="guvcview" title="Guvcview.*fps.*"] floating enable
@@ -60,6 +78,7 @@ for_window [app_id="imv"] floating enable, border none
 for_window [app_id="imv" title=".*backgrounds.*"] border none, move workspace 10, workspace 10, floating disable
 for_window [app_id="imv" title=".*Mangas.*"] border none, move workspace 10, workspace 10, floating disable
 for_window [app_id="mpv"] floating enable, border none
+for_window [app_id="mpv" title=".*Youtube$"] floating enable, border none, sticky enable
 for_window [app_id="zenity"] floating enable
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 533 set height 300
 for_window [title="Edit Message"] floating enable
@@ -78,6 +97,7 @@ for_window [app_id="Alacritty - notes"] floating enable, move position 0 0
 for_window [app_id="Alacritty - colurs.sh"] resize set height 684, set width 384, move position 1525 0
 for_window [app_id="Alacritty - walset.sh"] resize set height 384, set width 684, move position 0 0, opacity 0.8
 # }}
+for_window [workspace="10"] layout default, floating disable
 # }}
 # Applications {{
 mode applications {
@@ -85,8 +105,8 @@ mode applications {
 	bindsym f exec firefox, mode "default"
 	bindsym m exec $term --class 'Alacritty - ncmpcpp' -e "ncmpcpp", mode "default"
 	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e "bluetoothctl", mode "default"
-    bindsym l exec $term --class 'Alacritty - walset.sh' -e '$HOME/.scripts/walset.sh light' && swaymsg workspace current, mode "default"
-    bindsym d exec $term --class 'Alacritty - walset.sh' -e '$HOME/.scripts/walset.sh dark' && swaymsg workspace current, mode "default"
+    bindsym l exec $term --class 'Alacritty - walset.sh' -e "$HOME/.scripts/walset.sh" light , mode "default"
+    bindsym d exec $term --class 'Alacritty - walset.sh' -e "$HOME/.scripts/walset.sh" dark, mode "default" 
 	bindsym c exec $term --class 'Alacritty - colurs.sh' -e "$HOME/.scripts/colurs.sh", mode "default"
 	bindsym s exec "scrcpy -t", mode "default"
 	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
@@ -105,20 +125,6 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 		 timeout 900 'systemctl suspend' \
          before-sleep 'swaylock -f' \
-# }}
-# Input configuration {{
-
-   input "1267:12433:ELAN0504:01_04F3:3091_Touchpad" {
-       dwt enabled
-       tap enabled
-       natural_scroll enabled
-       middle_emulation enabled
-   }
-
-   input "1:1:AT_Translated_Set_2_keyboard" {
-       xkb_options "caps:swapescape,compose:ralt"
-   }
-
 # }}
 # Key bindings {{
     bindsym $mod+Return exec $term
@@ -258,12 +264,16 @@ bindsym $mod+ctrl+l exec swaylock -f
 bindsym Print exec "$HOME/.scripts/wlshot.sh" 
 bindsym ctrl+Print exec "$HOME/.scripts/wlshot.sh -p" 
 bindsym shift+Print exec "$HOME/.scripts/wlshot.sh -w"
-bindsym alt+Print exec "$HOME/.scripts/wlshot.sh -c" 
+bindsym alt+Print exec "$HOME/.scripts/wlshot.sh -t" 
+bindsym alt+shift+Print exec "$HOME/.scripts/wlshot.sh -c" 
 # }}
 # Recording {{
 bindsym $mod+Print exec "$HOME/.scripts/wlrecord.sh" 
 bindsym $mod+ctrl+Print exec "$HOME/.scripts/wlrecord.sh -s" 
 bindsym $mod+Shift+Print exec "$HOME/.scripts/wlrecord.sh -w" 
+# }}
+# Youtube player {{
+bindsym $mod+grave exec echo "1080\n720\n480\n360\n240\n144" | bemenu $menu -I0 --nb '$base00' --nf '$base03' | $HOME/.scripts/yt-mpv.sh 
 # }}
 # }}
 #=========================================#

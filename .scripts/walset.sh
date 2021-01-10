@@ -5,7 +5,7 @@ wallpaper=$(ls -td $HOME/backgrounds/images/* | fzf --preview 'swaymsg output "*
 
 if [ ! -z $wallpaper ]; then
     cp $wallpaper ~/.cache/theme/wallpaper
-    ffmpeg -y -i $wallpaper -vf "boxblur=6:6" ~/.cache/theme/blurredwallpaper.png >/dev/null 2>&1
+    ffmpeg -y -i $wallpaper -vf "boxblur=6:6" ~/.cache/theme/blurredwallpaper.png >/dev/null 2>&1 &
     case $mode in
         dark)
             flavours generate dark $wallpaper

@@ -170,11 +170,11 @@ label:focus {
 }
 
 #mpd.disconnected {
-    color: @base08;
+    color: @base01;
 }
 
 #mpd.stopped {
-    color: @base08;
+    color: @base03;
 }
 
 #mpd.paused {

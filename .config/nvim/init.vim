@@ -1,8 +1,7 @@
 " vim:fdm=marker:fmr={{{,}}}
 
 " UI {{{
-set nu rnu
-set ruler
+set nu 
 set mouse=a
 set title
 set splitbelow
@@ -10,21 +9,20 @@ set splitright
 set listchars=tab:\┆\ 
 set list
 set conceallevel=2
+set nocursorline
+set nocursorcolumn
+set scrolljump=5
+set lazyredraw
 " }}}
 " Search {{{
-set hlsearch
 set ignorecase
 set smartcase
-set path+=**
-set wildmenu
-set incsearch
 set infercase
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
 " }}}
 " Text {{{
 set display+=truncate
-set encoding=utf-8
 set linebreak
 set wrap
 syntax on
@@ -34,7 +32,6 @@ set ai
 set tabstop=4
 set shiftwidth=4
 set scrolloff=999
-set backspace=indent,eol,start
 set smartindent
 " }}}
 " Commands  {{{
@@ -45,7 +42,6 @@ command! -nargs=1 Silent
 			\ | execute 'redraw!'
 " }}}
 " Shell commands in scratch window {{{
-
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
   let isfirst = 1
@@ -85,11 +81,8 @@ vnoremap <Leader>y :'<,'> call Test() <CR>
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 nnoremap <silent> <Leader>p :r !wl-paste -p --no-newline 2>/dev/null<CR>
 nnoremap <silent> <Leader>P :r !wl-paste --no-newline 2>/dev/null<CR>
-inoremap <silent> \p <C-o>:r !wl-paste --no-newline 2>/dev/null<CR>
-inoremap <silent> \P <C-o>:r !wl-paste -p --no-newline 2>/dev/null<CR>
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
-inoremap <expr> <S-Tab> InsertTabWrapper()
 nmap Y y$
 " }}}
 " Bindings: Buffers {{{
@@ -105,6 +98,12 @@ nnoremap <Leader>x xu:%s/<C-R>-//g<CR>
 nnoremap <Leader>. )i<BS><CR><ESC><C-o>
 nnoremap \w :w <CR>
 nnoremap \q :q<CR>
+
+" Fix netrw toggling
+augroup AutoDeleteNetrwHiddenBuffers
+  au!
+  au FileType netrw setlocal bufhidden=wipe
+augroup end
 " }}}
 " Bindings: Navigation {{{
 nnoremap k gk
@@ -113,7 +112,7 @@ nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
-nnoremap <silent> <Leader>e :Vexplore 15<CR>
+nnoremap <silent> <Leader>e :Lexplore 30<CR>
 " }}}
 " Bindings: Tabs {{{
 nnoremap <Leader><Tab> gT
@@ -126,12 +125,19 @@ nnoremap <silent> <Leader><t_KE> :res -5 <CR>
 nnoremap <silent> <Leader><t_KK> :res +5 <CR>
 nnoremap <silent> <Leader>r <C-W>R
 " }}}
+" Bindings: Popupmenu {{{
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" }}}
 " Airline  {{{
-set fillchars+=vert:│ 
 let g:airline_extensions = ["tabline"]
+let g:airline_theme = 'base16'
 " }}}
 " air-line {{{
 let g:airline_powerline_fonts = 1
+let g:airline_highlighting_cache = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -164,55 +170,40 @@ let g:airline#extensions#tabline#enabled = 1
 " }}}
 " Backups  {{{
 set backup
-set backupdir=~/.vim/backup/
+set backupdir=~/.local/share/nvim/backup/
+set dir=~/.local/share/nvim/swap/
 set writebackup
 set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 set confirm
-set dir=~/.cache/vim
 " }}}
 " Limelight {{{
 autocmd! User GoyoEnter Limelight0.6
 autocmd! User GoyoLeave Limelight!
 " }}}
-" Tab autocompletion  {{{
-function! InsertTabWrapper()
-	let col = col('.') - 1
-	if !col || getline('.')[col - 1] !~ '\k'
-		return "\<tab>"
-	else
-		return "\<c-n>"
-		endif
-	endif
-endfunction
-" }}}
 " Folds  {{{
 autocmd BufWinLeave *.* mkview!
-autocmd BufWinEnter *.* silent loadview 
+autocmd BufWinEnter *.* silent! loadview
 nnoremap <Leader><Leader> za
 let g:markdown_folding = 1
 set fillchars+=fold:\ 
 " }}}
-" Ultisnips {{{
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsEditSplit="vertical"
+" Deoplete && Snippets{{{
+let g:deoplete#enable_at_startup = 1
 " }}}
 " Plugins  {{{
-call plug#begin()
+call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " }}}
 " Colors {{{
 colorscheme base16-generated
+" colorscheme base16-transparent
 " }}}
-
-
-
-

@@ -47,9 +47,15 @@ subtemplate = 'default'
 rewrite = false
 
 [[item]]
-file = '~/.vim/colors/base16-generated.vim'
+file = '~/.local/share/nvim/site/colors/base16-generated.vim'
 template = 'vim'
 subtemplate = 'custom'
+rewrite = true
+
+[[item]]
+file = '~/.local/share/nvim/site/colors/base16-transparent.vim'
+template = 'vim'
+subtemplate = 'transparent'
 rewrite = true
 
 [[item]]
@@ -97,5 +103,3 @@ file = '~/.cache/theme/shellcolors.sh'
 template = 'shell'
 subtemplate = 'default'
 rewrite = true
-
-

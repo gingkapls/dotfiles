@@ -23,25 +23,25 @@ on-button-right=invoke-default-action
 
 
 # Start flavours
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+## Base16 Generated
+# Author: Flavours
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#282936
-text-color=#e9e9f4
-border-color=#00f769
-progress-color=source #00f769
+background-color=#2b2f58
+text-color=#e2dae4
+border-color=#d84b8b
+progress-color=source #d84b8b
 
 [urgency=low]
-background-color=#282936
-text-color=#b45bcf
-border-color=#00f769
+background-color=#2b2f58
+text-color=#4d66ff
+border-color=#d84b8b
 
 [urgency=high]
-background-color=#282936
-text-color=#ea51b2
-border-color=#00f769
+background-color=#2b2f58
+text-color=#f88bc3
+border-color=#d84b8b
 
 # End flavours
 

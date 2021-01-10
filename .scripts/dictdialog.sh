@@ -1,16 +1,5 @@
 #!/bin/sh
 
-## word=$(wl-paste -p | sed 's/\W.*\|\s//g') 
-# case "$1" in
-# 		"paste")
-# 			word=$(wl-paste -p | sed 's/^\s\|\s$//g') 
-# 			;;
-# 		"type")
-# 				word="$(cat /dev/stdin)"
-# 			;;
-# esac
-
-
 word="$(< /dev/stdin)"
 
 if [[ -z "$word" ]]

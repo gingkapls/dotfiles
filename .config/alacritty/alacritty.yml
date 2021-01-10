@@ -59,40 +59,40 @@ font:
 # draw_bold_text_with_bright_colors: false
 
 # Start flavours
-# Base16 Dracula - alacritty color config
-# Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+# Base16 Generated - alacritty color config
+# Flavours
 colors:
   # Default colors
   primary:
-    background: '0x282936'
-    foreground: '0xe9e9f4'
+    background: '0x2b2f58'
+    foreground: '0xe2dae4'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x282936'
-    cursor: '0xe9e9f4'
+    text: '0x2b2f58'
+    cursor: '0xe2dae4'
 
   # Normal colors
   normal:
-    black:   '0x282936'
-    red:     '0xea51b2'
-    green:   '0xebff87'
-    yellow:  '0x00f769'
-    blue:    '0x62d6e8'
-    magenta: '0xb45bcf'
-    cyan:    '0xa1efe4'
-    white:   '0xe9e9f4'
+    black:   '0x2b2f58'
+    red:     '0xf88bc3'
+    green:   '0xedc6f4'
+    yellow:  '0xd84b8b'
+    blue:    '0xb4a9f2'
+    magenta: '0x4d66ff'
+    cyan:    '0xf47bd2'
+    white:   '0xe2dae4'
 
   # Bright colors
   bright:
-    black:   '0x626483'
-    red:     '0xb45bcf'
-    green:   '0x3a3c4e'
-    yellow:  '0x4d4f68'
-    blue:    '0x62d6e8'
-    magenta: '0xf1f2f8'
-    cyan:    '0x00f769'
-    white:   '0xf7f7fb'
+    black:   '0x9995ac'
+    red:     '0xf073b3'
+    green:   '0x505174'
+    yellow:  '0x747390'
+    blue:    '0xbeb8c8'
+    magenta: '0xe6dfe8'
+    cyan:    '0x3fc4fa'
+    white:   '0xebe5ec'
 
 draw_bold_text_with_bright_colors: false
 # End Flavours
@@ -101,7 +101,7 @@ draw_bold_text_with_bright_colors: false
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1
+background_opacity: .85
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
