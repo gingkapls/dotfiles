@@ -1,7 +1,8 @@
 " vim:fdm=marker:fmr={{{,}}}
 
 " UI {{{
-set nu 
+set nu
+set rnu
 set mouse=a
 set title
 set splitbelow
@@ -84,6 +85,7 @@ nnoremap <silent> <Leader>P :r !wl-paste --no-newline 2>/dev/null<CR>
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 nmap Y y$
+vnoremap <Leader>n :!nl -bt <CR>
 " }}}
 " Bindings: Buffers {{{
 nnoremap ;n :bn<CR>
@@ -95,6 +97,7 @@ nnoremap <Leader>c :r !
 nnoremap <Leader>g :Goyo <CR>
 nnoremap <Leader>z xu/<C-R>-<CR>
 nnoremap <Leader>x xu:%s/<C-R>-//g<CR>
+vnoremap <Leader>x xu:%s/<C-R>-//g<CR>
 nnoremap <Leader>. )i<BS><CR><ESC><C-o>
 nnoremap \w :w <CR>
 nnoremap \q :q<CR>
@@ -204,6 +207,6 @@ Plug 'junegunn/limelight.vim'
 call plug#end()
 " }}}
 " Colors {{{
-colorscheme base16-generated
 " colorscheme base16-transparent
+colorscheme base16-generated
 " }}}

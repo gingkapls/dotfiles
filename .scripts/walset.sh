@@ -1,21 +1,26 @@
 #!/bin/sh
 
+pushd $HOME/Pictures/Wallpapers/
 mode=$1
-wallpaper=$(ls -td $HOME/backgrounds/images/* | fzf --preview 'swaymsg output "*" bg {} fill' --preview-window="right:0" --color=16 --bind "j:down,k:up")
+
+if [ -z $2 ]; then
+	wallpaper=$(ls -td * | fzf --preview "flavours generate $mode {} && flavours apply -l generated & swaymsg output '*' bg $HOME/Pictures/Wallpapers/{} fill & flavours info generated" --color=16 --bind "j:down,k:up") 
+else
+	wallpaper=$2
+fi
 
 if [ ! -z $wallpaper ]; then
-    cp $wallpaper ~/.cache/theme/wallpaper
-    ffmpeg -y -i $wallpaper -vf "boxblur=6:6" ~/.cache/theme/blurredwallpaper.png >/dev/null 2>&1 &
+    cp $wallpaper ~/.cache/theme/wallpaper -f
     case $mode in
         dark)
             flavours generate dark $wallpaper
             gsettings set org.gnome.desktop.interface icon-theme 'McMojave-circle-Dark'
-            gsettings set org.gnome.desktop.interface cursor-theme 'Oxygen_White'
+            gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors-light'
         ;;
         light)
             flavours generate light $wallpaper
             gsettings set org.gnome.desktop.interface icon-theme 'McMojave-circle-Light'
-            gsettings set org.gnome.desktop.interface cursor-theme 'Oxygen_Black'
+            gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors-dark'
         ;;
     esac
     flavours apply generated
@@ -24,3 +29,4 @@ else
 fi
 
 nm-applet & disown
+ffmpeg -y -i $wallpaper -vf "boxblur=6:6" ~/.cache/theme/blurredwallpaper.png >/dev/null 2>&1

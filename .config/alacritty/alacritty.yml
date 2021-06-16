@@ -64,35 +64,35 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x2b2f58'
-    foreground: '0xe2dae4'
+    background: '0xe8e2e0'
+    foreground: '0x2b1d1d'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x2b2f58'
-    cursor: '0xe2dae4'
+    text: '0xe8e2e0'
+    cursor: '0x2b1d1d'
 
   # Normal colors
   normal:
-    black:   '0x2b2f58'
-    red:     '0xf88bc3'
-    green:   '0xedc6f4'
-    yellow:  '0xd84b8b'
-    blue:    '0xb4a9f2'
-    magenta: '0x4d66ff'
-    cyan:    '0xf47bd2'
-    white:   '0xe2dae4'
+    black:   '0xe8e2e0'
+    red:     '0x8f5131'
+    green:   '0x685f59'
+    yellow:  '0x616066'
+    blue:    '0x6e5d56'
+    magenta: '0x6f5a63'
+    cyan:    '0x7c593e'
+    white:   '0x2b1d1d'
 
   # Bright colors
   bright:
-    black:   '0x9995ac'
-    red:     '0xf073b3'
-    green:   '0x505174'
-    yellow:  '0x747390'
-    blue:    '0xbeb8c8'
-    magenta: '0xe6dfe8'
-    cyan:    '0x3fc4fa'
-    white:   '0xebe5ec'
+    black:   '0x776c6b'
+    red:     '0x944c43'
+    green:   '0xc3bbb9'
+    yellow:  '0x9d9392'
+    blue:    '0x514444'
+    magenta: '0x251818'
+    cyan:    '0x815741'
+    white:   '0x1e1414'
 
 draw_bold_text_with_bright_colors: false
 # End Flavours
@@ -101,7 +101,7 @@ draw_bold_text_with_bright_colors: false
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: .85
+background_opacity: 1
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -133,16 +133,16 @@ cursor:
 #  args:
 #    - --login
 
-mouse:
+  #mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: true
 
-  url:
+    #  url:
     # URL launcher
-    launcher:
-      program: xdg-open
-      args: []
+    #launcher:
+    #  program: xdg-open
+    #  args: []
 
     # URL modifiers
-    modifiers: None
+    #modifiers: None
 

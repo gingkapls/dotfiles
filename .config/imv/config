@@ -8,6 +8,13 @@ title_text = [$imv_current_index/$imv_file_count] $(echo $imv_current_file | awk
 suppress_default_binds = true
 initial_pan = 50 0
 
+# Start flavours
+## Base16 Generated
+# Author: Flavours
+
+background = e8e2e0
+# End flavours
+
 [aliases]
 # Define aliases here. Any arguments passed to an alias are appended to the
 # command.

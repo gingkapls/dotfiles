@@ -12,7 +12,7 @@ case "$1" in
 		break
 	;;
 	"-p") ## Partial screenshot 
-		grim -g "$(slurp -c "#000000" )" "$HOME/Pictures/shots/""$(date +"%F_%T")_"$app_id".png" && notify-send -i $(ls $HOME/Pictures/shots/* -drt | tail -n1) "Screenshot Captured" --app-name="screenshots" 
+		grim -g "$(slurp -c "#000000" )" "$HOME/Pictures/shots/""$(date +"%F_%T")_"$app_id".png" && notify-send -i $(ls $HOME/Pictures/shots/* -drt | tail -n1) "Screenshot Captured" --app-name="screenshots" -t 2000
 		wl-copy < $(ls $HOME/Pictures/shots/* -drt | tail -n1)
 		tesseract $(ls $HOME/Pictures/shots/* -drt | tail -n1) - | wl-copy -p
 		break
@@ -29,7 +29,7 @@ case "$1" in
 		break
 	;;
 	*) ## Normal screenshot  
-		grim "$HOME/Pictures/shots/""$(date +"%F_%T")_"$app_id".png" -c && notify-send -i $(ls $HOME/Pictures/shots/* -drt | tail -n1) "Screenshot Captured"  --app-name="screenshots" 
+		grim "$HOME/Pictures/shots/""$(date +"%F_%T")_"$app_id".png" -c && notify-send -i $(ls $HOME/Pictures/shots/* -drt | tail -n1) "Screenshot Captured"  --app-name="screenshots" -t 2000
 		wl-copy < $(ls $HOME/Pictures/shots/* -drt | tail -n1)
 		tesseract $(ls $HOME/Pictures/shots/* -drt | tail -n1) - | wl-copy -p
 		break

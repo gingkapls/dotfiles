@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 pushd "$1" 
-series="$(basename $PWD)"
+series="$(basename "$PWD")"
 
 while read -r manga; do 
 		name="$(echo $manga | perl -pe 's/Vol\..\d\s//;' -e 's/Ch.(\d|\.)*\K.+//g;' -e 's/\d+/sprintf("%02d",$&)/e;' -e 's/(.*)/\U$1/g')" ## Cleaning up the chapter name

@@ -27,6 +27,7 @@ template = 'sway'
 subtemplate = 'colors'
 hook = 'swaymsg reload'
 rewrite = true
+light = false
 
 [[item]]
 file = '~/.config/swaylock/config'
@@ -45,6 +46,13 @@ file = '~/.config/alacritty/alacritty.yml'
 template = 'alacritty'
 subtemplate = 'default'
 rewrite = false
+
+[[item]]
+file = '~/.config/foot/foot.ini'
+template = 'foot'
+subtemplate = 'default'
+rewrite = false
+light = true
 
 [[item]]
 file = '~/.local/share/nvim/site/colors/base16-generated.vim'
@@ -92,14 +100,20 @@ hook = 'fish -c "source ~/.config/fish/fish_colors"'
 rewrite = true
 
 [[item]]
-file = '~/.config/waybar/colors.css'
-template = 'waybar'
-subtemplate = 'default'
-hook = 'bash -c "pkill waybar; waybar & disown"'
-rewrite = true
-
-[[item]]
 file = '~/.cache/theme/shellcolors.sh'
 template = 'shell'
 subtemplate = 'default'
+rewrite = true
+
+[[item]]
+file = '~/.config/imv/config'
+template = 'imv'
+subtemplate = 'colors'
+rewrite = false
+
+[[item]]
+file = '~/.config/spicetify/Themes/base16/color.ini'
+template = 'spicetify'
+subtemplate = 'default'
+hook = 'spicetify update'
 rewrite = true

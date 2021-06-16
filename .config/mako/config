@@ -1,6 +1,6 @@
 max-visible=5
 border-radius=8
-border-size=3
+border-size=4
 width=300
 default-timeout=5000
 font=Iosveka Medium Oblique 14
@@ -28,21 +28,29 @@ on-button-right=invoke-default-action
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#2b2f58
-text-color=#e2dae4
-border-color=#d84b8b
-progress-color=source #d84b8b
+background-color=#c3bbb9
+text-color=#2b1d1d
+border-color=#e8e2e0
+progress-color=#9d9392
 
 [urgency=low]
-background-color=#2b2f58
-text-color=#4d66ff
-border-color=#d84b8b
+background-color=#c3bbb9
+text-color=#6f5a63
+border-color=#e8e2e0
 
 [urgency=high]
-background-color=#2b2f58
-text-color=#f88bc3
-border-color=#d84b8b
+background-color=#c3bbb9
+text-color=#8f5131
+border-color=#e8e2e0
 
+[app-name="screenshots"]
+max-icon-size=256
+width=300
+format=
+padding=16
+background-color=#e8e2e0
+border-color=#c3bbb9
+border-size=8
 # End flavours
 
 #############################################################
@@ -59,12 +67,6 @@ format=<b>%s</b>\n%b
 font=Iosveka Heavy Oblique 12
 padding=0, 2, 1
 
-[app-name="screenshots"]
-max-icon-size=256
-width=300
-format=
-padding=16
-
 [app-name="colorpicker"]
 max-icon-size=256
 width=256
@@ -72,8 +74,8 @@ padding=16
 
 [app-name="brightnessbar"]
 font=Iosveka Heavy Oblique 12
-padding=0, 2, 1
+padding=2, 2, 2
 
 [app-name="volumebar"]
 font=Iosveka Heavy Oblique 12
-padding=1, 2, 1
+padding=2, 2, 2

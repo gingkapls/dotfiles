@@ -6,10 +6,10 @@ vol=$(amixer sget Master | awk 'FNR==6 {print $(NF-1)}' | tr -cd '[:digit:]') ##
 
 case $vol in
 		"0")
-			notify-send "						       Muted" -i none -t 1000 --app-name="volumebar"
+			notify-send "			       Muted" -i none -t 1000 --app-name="volumebar"
 		;;
 		*)
-			notify-send "						           $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volumebar"
+			notify-send "			           $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volumebar"
 		;;
 esac
 

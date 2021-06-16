@@ -4,6 +4,8 @@ function 1dl
 		youtube-dl -x $argv[1] -o $output_format --audio-format mp3 --no-playlist --no-cache-dir --embed-thumbnail --add-metadata -4
 	else if test $argv[-1] = "-m"
 		youtube-dl -f bestvideo+bestaudio $argv[1] -o $output_format --audio-format mp3 --no-playlist --no-cache-dir --embed-thumbnail --add-metadata -4
+	else if test $argv[-1] = "-b"
+	youtube-dl -f bestvideo+bestaudio $argv[1] -o $output_format --no-playlist --no-cache-dir --add-metadata --geo-bypass --embed-thumbnail -4
 	else
 		youtube-dl -F $argv[1]
 	read num

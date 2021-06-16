@@ -3,12 +3,14 @@ set -g -x PATH /usr/local/bin $HOME/.gem/ruby/2.7.0/bin $HOME/.scripts/ $PATH
 
 ## Wayland
 set -g -x MOZ_ENABLE_WAYLAND "1"
-set -g -x QT_QPA_PLATFORM "wayland-egl"
+set -g -x QT_QPA_PLATFORM "wayland"
 set -g -x SDL_VIDEODRIVER "wayland"
 set -g -x XDG_SESSION_TYPE "wayland"
 set -g -x QT_QPA_PLATFORMTHEME "qt5ct"
 set -g -x QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+set -g -x GDK_BACKEND "wayland"
 set -g -x XDG_CONFIG_HOME "$HOME/.config/"
+set -g -x XDG_CURRENT_DESKTOP "sway"
 
 ## Screenshot directory
 set -g -x GRIM_DEFAULT_DIR "$HOME/Pictures/shots/"

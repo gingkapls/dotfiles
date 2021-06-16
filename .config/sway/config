@@ -2,12 +2,13 @@
 
 set $mod Mod4                             
 
-set $left h                               
-set $down j                               
-set $up k                                                      
-set $right l                              
+set $left h
+set $down j
+set $up k
+set $right l
 
 set $term alacritty                       
+#set $term footclient
 
 # Launcher                                #
 ## set $menu -H27 --nb '$base00' --nf '$base05' --fb '$base00' --ff '$base0D' --hb '$base00' --hf '$base0A' --tb '$base00' --tf '$base01' --fn 'Iosveka Heavy Oblique 16' -n --prompt=   
@@ -21,9 +22,9 @@ include $HOME/.config/sway/colors
 output "*" bg $HOME/.cache/theme/wallpaper fill $base00 
 
 ## class				 border 	background	 text		indicator	child-border
-client.focused 			$base0A 	$base00 	$base05 	$base01 	$base0A
-client.unfocused 		$base00 	$base00 	$base03 	$base01 	$base00
-client.focused_inactive $base00 	$base00 	$base00 	$base01 	$base00
+client.focused 			$base00 	$base00 	$base05 	$base01 	$base00
+client.unfocused 		$base00 	$base00 	$base01 	$base01 	$base00
+client.focused_inactive $base00 	$base00 	$base03 	$base01 	$base00
 client.urgent 			$base00 	$base0A 	$base08 	$base01 	$base00
 # }}
 # Settings {{
@@ -31,8 +32,9 @@ default_floating_border none
 default_border pixel 2
 # gaps inner 0
 gaps outer 10
-gaps top -5
+gaps top -10
 smart_borders on
+smart_gaps on
 workspace_auto_back_and_forth yes
 xwayland enable
 titlebar_padding 10 4
@@ -45,9 +47,11 @@ exec mpd
 exec wal -R -a 90
 exec nm-applet --indicator
 exec fusuma -d
-exec $HOME/.scripts/mpdpreview.sh
+#exec $HOME/.scripts/mpdpreview.sh
 exec autotiling
 exec pulseeffects --gapplication-service
+exec playerctld
+#exec foot -s 
 # }}
 # Input configuration {{
 
@@ -65,20 +69,16 @@ exec pulseeffects --gapplication-service
 
 # }}
 # Assignments {{
-# Global {{
-for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
-for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
-# }}
 # Apps {{
 for_window [app_id="wlroots"] shortcuts_inhibitor activate
-for_window [app_id="anki"] floating enable, resize set height 510, set width 910
-for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
+# for_window [app_id="anki"] floating enable, resize set height 510, set width 910
+# for_window [app_id="anki" title=".*User.*"] floating disable, move workspace 5, focus 
 for_window [app_id="guvcview" title="Guvcview.*fps.*"] floating enable
 for_window [app_id="imv"] floating enable, border none
 for_window [app_id="imv" title=".*backgrounds.*"] border none, move workspace 10, workspace 10, floating disable
 for_window [app_id="imv" title=".*Mangas.*"] border none, move workspace 10, workspace 10, floating disable
-for_window [app_id="mpv"] floating enable, border none
-for_window [app_id="mpv" title=".*Youtube$"] floating enable, border none, sticky enable
+#for_window [app_id="mpv"] floating enable, border none
+for_window [app_id="mpv" title=".*Youtube$"] floating enable, border none, sticky enable, resize set width 600 set height 400
 for_window [app_id="zenity"] floating enable
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 533 set height 300
 for_window [title="Edit Message"] floating enable
@@ -87,31 +87,37 @@ for_window [title="^wget.*"] inhibit_idle
 for_window [class="XEyes"] floating enable, sticky enable
 for_window [urgent="latest"] focus
 for_window [title="^Google Pixel 3 XL.*"] resize set width 29 ppt
+for_window [class="firefox" title="^Firefox - Sharing Indicator.*"] floating enable, move position 0 932
 # }}
-# Alacritty {{
-for_window [app_id="Alacritty - ncmpcpp"] floating enable, resize set height 600, set width 600
-for_window [app_id="Alacritty - bluetoothctl"] floating enable, resize set height 200, set width 600
-for_window [app_id="Alacritty -.*"] floating enable, move position 1075 0, border none
-for_window [app_id="Alacritty - dropdown"] floating enable, move position 0 -32, resize set height 200, set width 600
-for_window [app_id="Alacritty - notes"] floating enable, move position 0 0 
-for_window [app_id="Alacritty - colurs.sh"] resize set height 684, set width 384, move position 1525 0
-for_window [app_id="Alacritty - walset.sh"] resize set height 384, set width 684, move position 0 0, opacity 0.8
+# Terminal {{
+for_window [app_id="$term - ncmpcpp"] floating enable, resize set height 600, set width 600
+for_window [app_id="$term - bluetoothctl"] floating enable, resize set height 200, set width 600
+for_window [app_id="$term -.*"] floating enable, move position 1075 0, border none
+for_window [app_id="$term - dropdown"] floating enable, move position 0 -32, resize set height 200, set width 600
+for_window [app_id="$term - notes"] floating enable, move position 0 0 
+for_window [app_id="$term - colurs.sh"] resize set height 684, set width 384, move position 1525 0
+for_window [app_id="$term - walset.sh"] resize set height 600, set width 700, move position 0 0, opacity 0.8
 # }}
+# Global {{
+for_window [class="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
+for_window [app_id="^.*"] inhibit_idle fullscreen, title_format " <b>%title</b> (%app_id) "
 for_window [workspace="10"] layout default, floating disable
+# }}
 # }}
 # Applications {{
 mode applications {
 	bindsym e exec $term -e vifm, mode "default"
 	bindsym f exec firefox, mode "default"
-	bindsym m exec $term --class 'Alacritty - ncmpcpp' -e "ncmpcpp", mode "default"
-	bindsym b exec $term --class 'Alacritty - bluetoothctl' -e "bluetoothctl", mode "default"
-    bindsym l exec $term --class 'Alacritty - walset.sh' -e "$HOME/.scripts/walset.sh" light , mode "default"
-    bindsym d exec $term --class 'Alacritty - walset.sh' -e "$HOME/.scripts/walset.sh" dark, mode "default" 
-	bindsym c exec $term --class 'Alacritty - colurs.sh' -e "$HOME/.scripts/colurs.sh", mode "default"
-	bindsym s exec "scrcpy -t", mode "default"
+	bindsym m exec $term --class "$term - ncmpcpp" -e "ncmpcpp", mode "default"
+	bindsym b exec $term --class "$term - bluetoothctl" -e "bluetoothctl", mode "default"
+    bindsym l exec $term --class "$term - walset.sh" -e "$HOME/.scripts/walset.sh" light , mode "default"
+    bindsym d exec $term --class "$term - walset.sh" -e "$HOME/.scripts/walset.sh" dark, mode "default" 
+	bindsym c exec $term --class "$term - colurs.sh" -e "$HOME/.scripts/colurs.sh", mode "default"
+#	bindsym w exec $term --class "$term - walpreview.sh" -e "flavours apply $(flavours list -l | fzf --preview 'flavours info {} & flavours apply -l {}')", mode "default"
+	bindsym Return exec $term --class "$term - dropdown", mode "default"
+	bindsym s exec "scrcpy", mode "default"
 	bindsym a exec $HOME/.scripts/genystart.sh, mode "default"
 	bindsym shift+a exec $HOME/.scripts/genystart.sh -a, mode "default"
-	bindsym Return exec $term --class 'Alacritty - dropdown', mode "default"
 	bindsym Escape mode "default"
 }
 
@@ -229,8 +235,8 @@ mode "resize" {
     bindsym Left	resize shrink width 5px
     bindsym Up		resize shrink height 5px
 
-    bindsym i 			resize grow width 5px, resize grow height 5px
-    bindsym o 			resize shrink width 5px, resize shrink height 5px
+    bindsym i 			resize grow width 10px, resize grow height 10px
+    bindsym o 			resize shrink width 10px, resize shrink height 10px
     bindsym equal		resize set width 50ppt height 50ppt, mode "default"
 
 
@@ -250,11 +256,18 @@ bindsym XF86MonBrightnessUp exec "$HOME/.scripts/setbrightness.sh 1.2023"
 bindsym XF86MonBrightnessDown exec "$HOME/.scripts/setbrightness.sh 0.831739"
 # }} 
 # Media keys {{
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
-bindsym XF86AudioPrev exec $HOME/.scripts/mpccontrols.sh backward
-bindsym XF86AudioNext exec $HOME/.scripts/mpccontrols.sh forward
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# }}
+# OLD Media keys {{
+# bindsym XF86AudioPlay exec mpc toggle
+# bindsym XF86AudioStop exec mpc stop
+# bindsym XF86AudioPrev exec $HOME/.scripts/mpccontrols.sh backward
+# bindsym XF86AudioNext exec $HOME/.scripts/mpccontrols.sh forward
+# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 # }}
 # Lock {{
 bindsym $mod+ctrl+l exec swaylock -f
@@ -265,7 +278,7 @@ bindsym Print exec "$HOME/.scripts/wlshot.sh"
 bindsym ctrl+Print exec "$HOME/.scripts/wlshot.sh -p" 
 bindsym shift+Print exec "$HOME/.scripts/wlshot.sh -w"
 bindsym alt+Print exec "$HOME/.scripts/wlshot.sh -t" 
-bindsym alt+shift+Print exec "$HOME/.scripts/wlshot.sh -c" 
+bindsym ctrl+alt+Print exec "$HOME/.scripts/wlshot.sh -c" 
 # }}
 # Recording {{
 bindsym $mod+Print exec "$HOME/.scripts/wlrecord.sh" 
