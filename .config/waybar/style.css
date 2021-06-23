@@ -36,8 +36,8 @@ label:focus {
 #workspaces button {
     padding: 3px 10px;
 	margin: 2px 3px;
-    background-color: @theme_base_color;
-    border-color: @theme_base_color;
+    background-color: @bg_color;
+    border-color: @bg_color;
     color: @theme_fg_color;
 }
 
@@ -52,8 +52,8 @@ label:focus {
 #workspaces button.focused {
 	padding: 3px 10px;
 	margin: 2px 3px;
-    background-color: @theme_selected_bg_color;
-    border-color: @theme_selected_bg_color;
+	background-color: @theme_base_color; 
+	border-color: @theme_base_color;
 	color: @theme_selected_fg_color;
 }
 

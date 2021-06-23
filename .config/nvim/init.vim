@@ -94,7 +94,6 @@ nnoremap ;d :bd<CR>
 nnoremap ;<Tab> :bn <CR>
 nnoremap <silent> ;l :noh <CR> 
 nnoremap <Leader>c :r !
-nnoremap <Leader>g :Goyo <CR>
 nnoremap <Leader>z xu/<C-R>-<CR>
 nnoremap <Leader>x xu:%s/<C-R>-//g<CR>
 vnoremap <Leader>x xu:%s/<C-R>-//g<CR>
@@ -116,6 +115,7 @@ nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <silent> <Leader>e :Lexplore 30<CR>
+nnoremap <silent> <Leader>g :Limelight!! 0.6 <CR>
 " }}}
 " Bindings: Tabs {{{
 nnoremap <Leader><Tab> gT
@@ -180,10 +180,6 @@ set backupcopy=no
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 set confirm
 " }}}
-" Limelight {{{
-autocmd! User GoyoEnter Limelight0.6
-autocmd! User GoyoLeave Limelight!
-" }}}
 " Folds  {{{
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent! loadview
@@ -202,7 +198,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
 " }}}

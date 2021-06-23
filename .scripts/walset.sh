@@ -23,10 +23,10 @@ if [ ! -z $wallpaper ]; then
             gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors-dark'
         ;;
     esac
-    flavours apply generated
+    flavours apply generated &
 else
     false
 fi
 
-nm-applet & disown
+nm-applet &
 ffmpeg -y -i $wallpaper -vf "boxblur=6:6" ~/.cache/theme/blurredwallpaper.png >/dev/null 2>&1

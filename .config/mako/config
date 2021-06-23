@@ -28,28 +28,28 @@ on-button-right=invoke-default-action
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#c3bbb9
-text-color=#2b1d1d
-border-color=#e8e2e0
-progress-color=#9d9392
+background-color=#4c4451
+text-color=#cfcabb
+border-color=#2b2236
+progress-color=#6d656b
 
 [urgency=low]
-background-color=#c3bbb9
-text-color=#6f5a63
-border-color=#e8e2e0
+background-color=#4c4451
+text-color=#f2d886
+border-color=#2b2236
 
 [urgency=high]
-background-color=#c3bbb9
-text-color=#8f5131
-border-color=#e8e2e0
+background-color=#4c4451
+text-color=#9547ff
+border-color=#2b2236
 
 [app-name="screenshots"]
 max-icon-size=256
 width=300
 format=
 padding=16
-background-color=#e8e2e0
-border-color=#c3bbb9
+background-color=#2b2236
+border-color=#4c4451
 border-size=8
 # End flavours
 
